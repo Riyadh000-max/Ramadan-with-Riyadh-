@@ -906,8 +906,11 @@ function updatePinDots(){document.querySelectorAll('#pinDots .pin-dot').forEach(
 
 async function submitPin(){
   if(!pinCallback)return;
-  if(await pinCallback.validate(pinBuffer)){closePin();pinCallback.success();}
-  else{
+  if(await pinCallback.validate(pinBuffer)){
+    const onSuccess=pinCallback.success;
+    closePin();
+    onSuccess();
+  } else{
     document.getElementById('pinError').textContent=LANG[currentLang].pin_wrong;
     pinBuffer='';updatePinDots();
     const box=document.querySelector('.modal-box');
