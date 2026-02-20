@@ -7,201 +7,77 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --midnight: #0a1628;
-  --deep-blue: #0f2140;
-  --navy: #162d50;
-  --gold: #d4a843;
-  --gold-light: #f0d48a;
-  --gold-glow: rgba(212,168,67,0.15);
-  --cream: #faf6ee;
-  --cream-dark: #f0e9d8;
-  --sage: #7a9e7e;
-  --sage-light: #a8c5ab;
-  --rose: #c4756e;
-  --rose-light: #e8a9a3;
-  --text-dark: #1a1a2e;
-  --text-mid: #4a4a6a;
-  --text-light: #8a8aaa;
-  --card-bg: rgba(255,255,255,0.92);
-  --card-border: rgba(212,168,67,0.2);
-  --shadow-sm: 0 2px 8px rgba(10,22,40,0.06);
-  --shadow-md: 0 4px 20px rgba(10,22,40,0.1);
-  --shadow-lg: 0 8px 40px rgba(10,22,40,0.15);
-  --radius-sm: 10px;
-  --radius-md: 16px;
-  --radius-lg: 24px;
-  --font-display: 'Amiri', serif;
-  --font-body: 'Outfit', sans-serif;
+:root{
+  --midnight:#0a1628;--deep-blue:#0f2140;--navy:#162d50;
+  --gold:#d4a843;--gold-light:#f0d48a;--gold-glow:rgba(212,168,67,0.15);
+  --cream:#faf6ee;--cream-dark:#f0e9d8;
+  --sage:#7a9e7e;--sage-light:#a8c5ab;--rose:#c4756e;--rose-light:#e8a9a3;
+  --text-dark:#1a1a2e;--text-mid:#4a4a6a;--text-light:#8a8aaa;
+  --card-bg:rgba(255,255,255,0.92);--card-border:rgba(212,168,67,0.2);
+  --shadow-sm:0 2px 8px rgba(10,22,40,0.06);--shadow-md:0 4px 20px rgba(10,22,40,0.1);
+  --radius-sm:10px;--radius-md:16px;--radius-lg:24px;
+  --font-display:'Amiri',serif;--font-body:'Outfit',sans-serif;
 }
-* { margin:0; padding:0; box-sizing:border-box; }
-
-body {
-  font-family: var(--font-body);
-  background: var(--cream);
-  color: var(--text-dark);
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  top:0;left:0;right:0;bottom:0;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(212,168,67,0.06) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(122,158,126,0.06) 0%, transparent 50%);
-  pointer-events: none; z-index:0;
-}
-
-.geometric-bg {
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  opacity:0.03;
-  background-image:
-    repeating-linear-gradient(0deg, var(--gold) 0px, transparent 1px, transparent 40px),
-    repeating-linear-gradient(90deg, var(--gold) 0px, transparent 1px, transparent 40px);
-  pointer-events:none;z-index:0;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--font-body);background:var(--cream);color:var(--text-dark);min-height:100vh;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:radial-gradient(circle at 20% 20%,rgba(212,168,67,0.06) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(122,158,126,0.06) 0%,transparent 50%);pointer-events:none;z-index:0;}
+.geometric-bg{position:fixed;top:0;left:0;right:0;bottom:0;opacity:0.03;background-image:repeating-linear-gradient(0deg,var(--gold) 0px,transparent 1px,transparent 40px),repeating-linear-gradient(90deg,var(--gold) 0px,transparent 1px,transparent 40px);pointer-events:none;z-index:0;}
 
 /* ═══════ SPLASH ═══════ */
-.splash-screen {
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  background: linear-gradient(160deg, var(--midnight) 0%, var(--deep-blue) 40%, var(--navy) 100%);
-  display:flex;align-items:center;justify-content:center;
-  z-index:1000;overflow:hidden;
-}
+.splash-screen{position:fixed;top:0;left:0;right:0;bottom:0;background:linear-gradient(160deg,var(--midnight) 0%,var(--deep-blue) 40%,var(--navy) 100%);display:flex;align-items:center;justify-content:center;z-index:1000;overflow:hidden;}
 .splash-screen.hidden{display:none;}
-.splash-screen::before {
-  content:'';position:absolute;top:0;left:0;right:0;bottom:0;
-  background:
-    radial-gradient(ellipse at 50% 0%, rgba(212,168,67,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 100%, rgba(122,158,126,0.08) 0%, transparent 40%);
-}
+.splash-screen::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 50% 0%,rgba(212,168,67,0.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 100%,rgba(122,158,126,0.08) 0%,transparent 40%);}
 .splash-stars{position:absolute;top:0;left:0;right:0;bottom:0;overflow:hidden;}
 .star{position:absolute;width:2px;height:2px;background:var(--gold-light);border-radius:50%;animation:twinkle 3s ease-in-out infinite;}
 @keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1)}50%{opacity:1;transform:scale(1.5)}}
-
 .splash-content{position:relative;text-align:center;padding:2rem;max-width:440px;width:100%;animation:fadeUp .8s ease-out;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
 .splash-moon{width:80px;height:80px;margin:0 auto 1.2rem;}
 .splash-moon svg{width:100%;height:100%;filter:drop-shadow(0 0 20px rgba(212,168,67,0.4));}
-
 .splash-title{font-family:var(--font-display);font-size:1.9rem;color:var(--gold-light);margin-bottom:0.2rem;line-height:1.3;}
 .splash-subtitle{font-family:var(--font-display);font-size:1.2rem;color:rgba(240,212,138,0.7);margin-bottom:1.8rem;}
-
 .splash-input-group{margin-bottom:1rem;}
-.splash-label{display:block;color:rgba(240,212,138,0.6);font-size:0.82rem;margin-bottom:0.4rem;letter-spacing:0.5px;}
-.splash-input{
-  width:100%;padding:13px 18px;
-  background:rgba(255,255,255,0.08);
-  border:1.5px solid rgba(212,168,67,0.3);
-  border-radius:var(--radius-md);
-  color:var(--cream);font-family:var(--font-body);font-size:1rem;text-align:center;
-  outline:none;transition:all .3s;
-}
+.splash-label{display:block;color:rgba(240,212,138,0.6);font-size:0.82rem;margin-bottom:0.4rem;}
+.splash-input{width:100%;padding:13px 18px;background:rgba(255,255,255,0.08);border:1.5px solid rgba(212,168,67,0.3);border-radius:var(--radius-md);color:var(--cream);font-family:var(--font-body);font-size:1rem;text-align:center;outline:none;transition:all .3s;}
 .splash-input::placeholder{color:rgba(240,212,138,0.3);}
 .splash-input:focus{border-color:var(--gold);background:rgba(255,255,255,0.12);box-shadow:0 0 0 4px rgba(212,168,67,0.1);}
-
-.splash-btn{
-  width:100%;padding:13px;
-  background:linear-gradient(135deg,var(--gold) 0%,#c49a38 100%);
-  border:none;border-radius:var(--radius-md);
-  color:var(--midnight);font-family:var(--font-body);font-size:1rem;font-weight:600;
-  cursor:pointer;transition:all .3s;letter-spacing:0.3px;margin-top:0.5rem;
-}
+.splash-btn{width:100%;padding:13px;background:linear-gradient(135deg,var(--gold),#c49a38);border:none;border-radius:var(--radius-md);color:var(--midnight);font-family:var(--font-body);font-size:1rem;font-weight:600;cursor:pointer;transition:all .3s;margin-top:0.5rem;}
 .splash-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(212,168,67,0.3);}
 .splash-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
-
-.splash-secondary-btn{
-  width:100%;padding:12px;margin-top:0.6rem;
-  background:rgba(255,255,255,0.06);
-  border:1.5px solid rgba(212,168,67,0.25);border-radius:var(--radius-md);
-  color:var(--gold-light);font-family:var(--font-body);font-size:0.9rem;font-weight:500;
-  cursor:pointer;transition:all .3s;
-}
+.splash-secondary-btn{width:100%;padding:12px;margin-top:0.6rem;background:rgba(255,255,255,0.06);border:1.5px solid rgba(212,168,67,0.25);border-radius:var(--radius-md);color:var(--gold-light);font-family:var(--font-body);font-size:0.9rem;font-weight:500;cursor:pointer;transition:all .3s;}
 .splash-secondary-btn:hover{background:rgba(255,255,255,0.12);}
-
 .splash-error{color:var(--rose-light);font-size:0.82rem;margin-top:0.4rem;min-height:1.2em;}
 
 /* ═══════ PIN MODAL ═══════ */
-.modal-overlay{
-  position:fixed;top:0;left:0;right:0;bottom:0;
-  background:rgba(10,22,40,0.85);
-  display:none;align-items:center;justify-content:center;
-  z-index:2000;backdrop-filter:blur(6px);
-}
+.modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,0.85);display:none;align-items:center;justify-content:center;z-index:2000;backdrop-filter:blur(6px);}
 .modal-overlay.active{display:flex;}
-
-.modal-box{
-  background:linear-gradient(160deg,var(--deep-blue),var(--navy));
-  border:1px solid rgba(212,168,67,0.3);
-  border-radius:var(--radius-lg);
-  padding:2rem;max-width:380px;width:90%;text-align:center;
-  animation:fadeUp .4s ease-out;
-  box-shadow:var(--shadow-lg);position:relative;
-}
+.modal-box{background:linear-gradient(160deg,var(--deep-blue),var(--navy));border:1px solid rgba(212,168,67,0.3);border-radius:var(--radius-lg);padding:2rem;max-width:380px;width:90%;text-align:center;animation:fadeUp .4s ease-out;box-shadow:0 8px 40px rgba(10,22,40,0.15);position:relative;}
 @keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-12px)}40%{transform:translateX(12px)}60%{transform:translateX(-8px)}80%{transform:translateX(8px)}}
-
 .modal-title{font-family:var(--font-display);font-size:1.3rem;color:var(--gold-light);margin-bottom:0.3rem;}
 .modal-desc{color:rgba(240,212,138,0.5);font-size:0.82rem;margin-bottom:1.2rem;}
-
 .pin-dots{display:flex;justify-content:center;gap:12px;margin-bottom:1.2rem;}
 .pin-dot{width:16px;height:16px;border-radius:50%;border:2px solid rgba(212,168,67,0.4);transition:all .2s;}
 .pin-dot.filled{background:var(--gold);border-color:var(--gold);}
-
 .pin-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:250px;margin:0 auto;}
-.pin-key{
-  padding:14px;border-radius:var(--radius-sm);
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(212,168,67,0.15);
-  color:var(--cream);font-family:var(--font-body);font-size:1.2rem;font-weight:500;
-  cursor:pointer;transition:all .15s;
-}
+.pin-key{padding:14px;border-radius:var(--radius-sm);background:rgba(255,255,255,0.06);border:1px solid rgba(212,168,67,0.15);color:var(--cream);font-family:var(--font-body);font-size:1.2rem;font-weight:500;cursor:pointer;transition:all .15s;}
 .pin-key:hover{background:rgba(255,255,255,0.12);}
 .pin-key:active{transform:scale(0.93);}
 .pin-key.action{font-size:0.85rem;color:var(--gold-light);}
-
 .pin-error{color:var(--rose-light);font-size:0.82rem;margin-top:0.8rem;min-height:1.2em;}
-
-.modal-close{
-  position:absolute;top:12px;right:15px;
-  background:none;border:none;color:rgba(240,212,138,0.5);
-  font-size:1.5rem;cursor:pointer;line-height:1;
-}
+.modal-close{position:absolute;top:12px;right:15px;background:none;border:none;color:rgba(240,212,138,0.5);font-size:1.5rem;cursor:pointer;line-height:1;}
 
 /* ═══════ MAIN APP ═══════ */
 .app{display:none;position:relative;z-index:1;min-height:100vh;padding-bottom:100px;}
 .app.active{display:block;animation:fadeUp .5s ease-out;}
-
-/* ═══════ HEADER ═══════ */
-.app-header{
-  background:linear-gradient(160deg,var(--midnight) 0%,var(--deep-blue) 50%,var(--navy) 100%);
-  padding:1rem 1rem 1.3rem;position:relative;overflow:hidden;
-}
+.app-header{background:linear-gradient(160deg,var(--midnight),var(--deep-blue),var(--navy));padding:1rem 1rem 1.3rem;position:relative;overflow:hidden;}
 .app-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-
 .header-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;}
-
 .header-user{display:flex;align-items:center;gap:0.5rem;}
-.header-avatar{
-  width:34px;height:34px;
-  background:linear-gradient(135deg,var(--gold),#c49a38);
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-weight:600;color:var(--midnight);font-size:0.85rem;
-}
+.header-avatar{width:34px;height:34px;background:linear-gradient(135deg,var(--gold),#c49a38);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;color:var(--midnight);font-size:0.85rem;}
 .header-name{color:var(--cream);font-size:0.9rem;}
-
 .header-actions{display:flex;gap:0.4rem;}
-.header-btn{
-  background:rgba(255,255,255,0.08);
-  border:1px solid rgba(212,168,67,0.2);border-radius:var(--radius-sm);
-  color:var(--gold-light);padding:6px 10px;
-  font-family:var(--font-body);font-size:0.75rem;cursor:pointer;transition:all .2s;
-  display:flex;align-items:center;gap:3px;
-}
+.header-btn{background:rgba(255,255,255,0.08);border:1px solid rgba(212,168,67,0.2);border-radius:var(--radius-sm);color:var(--gold-light);padding:6px 10px;font-family:var(--font-body);font-size:0.75rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:3px;}
 .header-btn:hover{background:rgba(255,255,255,0.14);}
-
 .header-title-area{text-align:center;}
 .header-title{font-family:var(--font-display);color:var(--gold-light);font-size:1.3rem;line-height:1.3;}
 .header-title-sub{font-family:var(--font-display);color:rgba(240,212,138,0.5);font-size:0.9rem;margin-top:1px;}
@@ -209,75 +85,38 @@ body::before {
 /* ═══════ DAY SELECTOR ═══════ */
 .day-selector-section{padding:0.8rem 1rem;position:sticky;top:0;z-index:50;background:var(--cream);}
 .day-selector-label{font-size:0.75rem;color:var(--text-light);text-transform:uppercase;letter-spacing:1px;margin-bottom:0.4rem;font-weight:500;}
-
-.day-scroll{
-  display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;
-  scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;
-}
+.day-scroll{display:flex;gap:7px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
 .day-scroll::-webkit-scrollbar{display:none;}
-
-.day-chip{
-  flex-shrink:0;width:46px;height:54px;border-radius:var(--radius-sm);
-  border:1.5px solid var(--card-border);background:var(--card-bg);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  cursor:pointer;transition:all .2s;scroll-snap-align:center;position:relative;
-}
+.day-chip{flex-shrink:0;width:46px;height:54px;border-radius:var(--radius-sm);border:1.5px solid var(--card-border);background:var(--card-bg);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;transition:all .2s;scroll-snap-align:center;position:relative;}
 .day-chip:hover{border-color:var(--gold);}
-.day-chip.active{
-  background:linear-gradient(135deg,var(--deep-blue),var(--navy));
-  border-color:var(--gold);box-shadow:0 2px 12px rgba(212,168,67,0.2);
-}
+.day-chip.active{background:linear-gradient(135deg,var(--deep-blue),var(--navy));border-color:var(--gold);box-shadow:0 2px 12px rgba(212,168,67,0.2);}
 .day-chip .day-num{font-size:1.05rem;font-weight:600;color:var(--text-dark);line-height:1;}
 .day-chip.active .day-num{color:var(--gold-light);}
-.day-chip .day-label{font-size:0.55rem;color:var(--text-light);margin-top:2px;text-transform:uppercase;letter-spacing:0.5px;}
+.day-chip .day-label{font-size:0.55rem;color:var(--text-light);margin-top:2px;text-transform:uppercase;}
 .day-chip.active .day-label{color:rgba(240,212,138,0.6);}
 .day-chip .day-dot{position:absolute;bottom:3px;width:5px;height:5px;border-radius:50%;background:var(--sage);display:none;}
 .day-chip.has-data .day-dot{display:block;}
 
 /* ═══════ SECTION CARDS ═══════ */
 .main-content{padding:0 1rem;max-width:600px;margin:0 auto;}
-
-.section-card{
-  background:var(--card-bg);border:1px solid var(--card-border);
-  border-radius:var(--radius-lg);padding:1.1rem;margin-bottom:0.9rem;
-  box-shadow:var(--shadow-sm);animation:cardIn .4s ease-out both;
-}
+.section-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:1.1rem;margin-bottom:0.9rem;box-shadow:var(--shadow-sm);animation:cardIn .4s ease-out both;}
 @keyframes cardIn{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
-.section-card:nth-child(2){animation-delay:0.08s;}
-.section-card:nth-child(3){animation-delay:0.16s;}
-.section-card:nth-child(4){animation-delay:0.24s;}
-
-.section-header{
-  display:flex;align-items:center;gap:0.6rem;
-  margin-bottom:0.9rem;padding-bottom:0.7rem;
-  border-bottom:1px solid rgba(212,168,67,0.1);
-}
-.section-icon{
-  width:38px;height:38px;border-radius:var(--radius-sm);
-  display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;
-}
+.section-card:nth-child(2){animation-delay:0.08s;}.section-card:nth-child(3){animation-delay:0.16s;}.section-card:nth-child(4){animation-delay:0.24s;}
+.section-header{display:flex;align-items:center;gap:0.6rem;margin-bottom:0.9rem;padding-bottom:0.7rem;border-bottom:1px solid rgba(212,168,67,0.1);}
+.section-icon{width:38px;height:38px;border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
 .section-icon.prayer{background:linear-gradient(135deg,var(--deep-blue),var(--navy));}
 .section-icon.quran{background:linear-gradient(135deg,#2d6a4f,#40916c);}
 .section-icon.helping{background:linear-gradient(135deg,#8b5e3c,#a0724d);}
-
 .section-title{font-family:var(--font-display);font-size:1.1rem;color:var(--text-dark);line-height:1.2;}
 .section-subtitle{font-size:0.75rem;color:var(--text-light);margin-top:1px;}
 
 /* ═══════ PRAYER ═══════ */
 .prayer-grid{display:flex;flex-direction:column;gap:7px;}
-.prayer-row{
-  display:flex;align-items:center;gap:8px;padding:9px 11px;
-  background:var(--cream);border-radius:var(--radius-sm);
-  border:1px solid transparent;transition:all .2s;
-}
+.prayer-row{display:flex;align-items:center;gap:8px;padding:9px 11px;background:var(--cream);border-radius:var(--radius-sm);border:1px solid transparent;transition:all .2s;}
 .prayer-row.completed{border-color:rgba(122,158,126,0.3);background:rgba(122,158,126,0.06);}
 .prayer-name{font-weight:500;font-size:0.9rem;min-width:65px;color:var(--text-dark);}
 .prayer-options{display:flex;gap:5px;margin-inline-start:auto;}
-.prayer-opt{
-  padding:5px 9px;border-radius:20px;border:1.5px solid #ddd;
-  background:white;font-size:0.7rem;font-family:var(--font-body);
-  cursor:pointer;transition:all .2s;color:var(--text-mid);white-space:nowrap;
-}
+.prayer-opt{padding:5px 9px;border-radius:20px;border:1.5px solid #ddd;background:white;font-size:0.7rem;font-family:var(--font-body);cursor:pointer;transition:all .2s;color:var(--text-mid);white-space:nowrap;}
 .prayer-opt:hover{border-color:var(--gold);}
 .prayer-opt.home-active{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:var(--sage);color:#2e7d32;font-weight:500;}
 .prayer-opt.mosque-active{background:linear-gradient(135deg,var(--deep-blue),var(--navy));border-color:var(--gold);color:var(--gold-light);font-weight:500;}
@@ -285,236 +124,222 @@ body::before {
 /* ═══════ QURAN ═══════ */
 .quran-input-area{display:flex;align-items:center;gap:0.8rem;background:var(--cream);padding:0.9rem;border-radius:var(--radius-md);}
 .quran-control{display:flex;align-items:center;gap:0.4rem;}
-.quran-btn{
-  width:36px;height:36px;border-radius:50%;border:1.5px solid var(--card-border);
-  background:white;font-size:1.2rem;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--text-dark);
-}
+.quran-btn{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--card-border);background:white;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;color:var(--text-dark);}
 .quran-btn:hover{border-color:var(--gold);background:var(--gold-glow);}
 .quran-btn:active{transform:scale(0.93);}
-
-.quran-value-input{
-  width:65px;text-align:center;font-size:1.4rem;font-weight:600;
-  color:var(--text-dark);background:transparent;border:none;outline:none;font-family:var(--font-body);
-}
+.quran-value-input{width:65px;text-align:center;font-size:1.4rem;font-weight:600;color:var(--text-dark);background:transparent;border:none;outline:none;font-family:var(--font-body);}
 .quran-value-input::-webkit-inner-spin-button,.quran-value-input::-webkit-outer-spin-button{-webkit-appearance:none;}
 .quran-value-input{-moz-appearance:textfield;}
 .quran-unit{font-size:0.82rem;color:var(--text-light);}
 .quran-progress{flex:1;display:flex;flex-direction:column;gap:4px;}
 .quran-bar-bg{height:8px;background:#e8e4dc;border-radius:4px;overflow:hidden;}
-.quran-bar-fill{height:100%;background:linear-gradient(90deg,#2d6a4f,#40916c);border-radius:4px;transition:width .4s ease;width:0%;}
+.quran-bar-fill{height:100%;background:linear-gradient(90deg,#2d6a4f,#40916c);border-radius:4px;transition:width .4s;width:0%;}
 .quran-target{font-size:0.7rem;color:var(--text-light);}
 
 /* ═══════ HELPING ═══════ */
 .help-toggle-area{display:flex;gap:8px;margin-bottom:0.9rem;}
-.help-toggle-btn{
-  flex:1;padding:11px;border-radius:var(--radius-sm);border:1.5px solid #ddd;
-  background:white;font-family:var(--font-body);font-size:0.9rem;
-  cursor:pointer;transition:all .2s;color:var(--text-mid);font-weight:500;
-}
+.help-toggle-btn{flex:1;padding:11px;border-radius:var(--radius-sm);border:1.5px solid #ddd;background:white;font-family:var(--font-body);font-size:0.9rem;cursor:pointer;transition:all .2s;color:var(--text-mid);font-weight:500;}
 .help-toggle-btn.yes-active{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-color:var(--sage);color:#2e7d32;}
 .help-toggle-btn.no-active{background:linear-gradient(135deg,#fce4ec,#f8bbd0);border-color:var(--rose);color:#c62828;}
-
 .help-sub-section{display:none;animation:slideDown .3s ease-out;}
 .help-sub-section.visible{display:block;}
 @keyframes slideDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
-
-.chore-item{
-  display:flex;align-items:center;gap:9px;padding:9px 11px;
-  background:var(--cream);border-radius:var(--radius-sm);
-  margin-bottom:5px;cursor:pointer;transition:all .2s;border:1px solid transparent;
-}
+.chore-item{display:flex;align-items:center;gap:9px;padding:9px 11px;background:var(--cream);border-radius:var(--radius-sm);margin-bottom:5px;cursor:pointer;transition:all .2s;border:1px solid transparent;}
 .chore-item.checked{border-color:rgba(122,158,126,0.3);background:rgba(122,158,126,0.06);}
-.chore-check{
-  width:22px;height:22px;border-radius:6px;border:2px solid #ccc;
-  display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;
-}
+.chore-check{width:22px;height:22px;border-radius:6px;border:2px solid #ccc;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0;}
 .chore-item.checked .chore-check{background:var(--sage);border-color:var(--sage);}
 .chore-check svg{opacity:0;transition:opacity .2s;}
 .chore-item.checked .chore-check svg{opacity:1;}
 .chore-text{font-size:0.88rem;color:var(--text-dark);flex:1;}
 .chore-remove{background:none;border:none;color:var(--text-light);cursor:pointer;padding:4px;font-size:1rem;opacity:0.5;transition:opacity .2s;}
 .chore-remove:hover{opacity:1;color:var(--rose);}
-
 .add-chore-row{display:flex;gap:7px;margin-top:8px;}
-.add-chore-input{
-  flex:1;padding:9px 12px;border:1.5px solid #ddd;border-radius:var(--radius-sm);
-  font-family:var(--font-body);font-size:0.88rem;outline:none;background:white;transition:border-color .2s;
-}
+.add-chore-input{flex:1;padding:9px 12px;border:1.5px solid #ddd;border-radius:var(--radius-sm);font-family:var(--font-body);font-size:0.88rem;outline:none;background:white;transition:border-color .2s;}
 .add-chore-input:focus{border-color:var(--gold);}
-.add-chore-btn{
-  padding:9px 15px;background:linear-gradient(135deg,var(--gold),#c49a38);
-  border:none;border-radius:var(--radius-sm);color:var(--midnight);
-  font-family:var(--font-body);font-weight:600;font-size:0.82rem;cursor:pointer;transition:all .2s;white-space:nowrap;
-}
-.add-chore-btn:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(212,168,67,0.3);}
+.add-chore-btn{padding:9px 15px;background:linear-gradient(135deg,var(--gold),#c49a38);border:none;border-radius:var(--radius-sm);color:var(--midnight);font-family:var(--font-body);font-weight:600;font-size:0.82rem;cursor:pointer;transition:all .2s;white-space:nowrap;}
+.add-chore-btn:hover{transform:translateY(-1px);}
 
-/* ═══════ COMPETITION BANNER (student) ═══════ */
-.competition-banner{
-  background:linear-gradient(135deg,rgba(184,134,11,0.08),rgba(218,165,32,0.08));
-  border:1px solid rgba(218,165,32,0.2);border-radius:var(--radius-md);
-  padding:1rem;text-align:center;margin-bottom:0.9rem;
-  animation:cardIn .4s ease-out both;
-}
+/* ═══════ COMPETITION BANNER ═══════ */
+.competition-banner{background:linear-gradient(135deg,rgba(184,134,11,0.08),rgba(218,165,32,0.08));border:1px solid rgba(218,165,32,0.2);border-radius:var(--radius-md);padding:1rem;text-align:center;margin-bottom:0.9rem;animation:cardIn .4s ease-out both;}
 .comp-points-big{font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1;}
 .comp-label{font-size:0.78rem;color:var(--text-light);margin-top:4px;}
 
 /* ═══════ PROGRESS FOOTER ═══════ */
-.progress-footer{
-  position:fixed;bottom:0;left:0;right:0;
-  background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);
-  border-top:1px solid var(--card-border);padding:10px 1rem;z-index:100;
-}
+.progress-footer{position:fixed;bottom:0;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-top:1px solid var(--card-border);padding:10px 1rem;z-index:100;}
 .progress-inner{max-width:600px;margin:0 auto;display:flex;align-items:center;gap:0.8rem;}
 .progress-bar-outer{flex:1;height:10px;background:#e8e4dc;border-radius:5px;overflow:hidden;}
-.progress-bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),#c49a38);border-radius:5px;transition:width .5s ease;width:0%;}
+.progress-bar-inner{height:100%;background:linear-gradient(90deg,var(--gold),#c49a38);border-radius:5px;transition:width .5s;width:0%;}
 .progress-text{font-size:0.8rem;font-weight:600;color:var(--text-dark);white-space:nowrap;}
 .progress-label{font-size:0.68rem;color:var(--text-light);}
 
 /* ═══════ SAVE TOAST ═══════ */
-.save-toast{
-  position:fixed;top:20px;left:50%;
-  transform:translateX(-50%) translateY(-100px);
-  background:var(--navy);color:var(--gold-light);
-  padding:9px 18px;border-radius:30px;font-size:0.8rem;font-weight:500;
-  z-index:200;transition:transform .4s cubic-bezier(0.34,1.56,0.64,1);
-  box-shadow:var(--shadow-md);pointer-events:none;
-}
+.save-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-100px);background:var(--navy);color:var(--gold-light);padding:9px 18px;border-radius:30px;font-size:0.8rem;font-weight:500;z-index:200;transition:transform .4s cubic-bezier(0.34,1.56,0.64,1);box-shadow:var(--shadow-md);pointer-events:none;}
 .save-toast.show{transform:translateX(-50%) translateY(0);}
 
 /* ═══════════════════════════════════════
    TEACHER DASHBOARD
    ═══════════════════════════════════════ */
-.teacher-dashboard{
-  display:none;position:relative;z-index:1;min-height:100vh;padding-bottom:2rem;
-}
+.teacher-dashboard{display:none;position:relative;z-index:1;min-height:100vh;padding-bottom:2rem;}
 .teacher-dashboard.active{display:block;animation:fadeUp .4s ease-out;}
-
-.teacher-header{
-  background:linear-gradient(160deg,#1a0a2e 0%,#2d1b4e 50%,#3d2a5c 100%);
-  padding:1rem 1rem 1.3rem;position:relative;
-}
+.teacher-header{background:linear-gradient(160deg,#1a0a2e,#2d1b4e,#3d2a5c);padding:1rem 1rem 1.3rem;position:relative;}
 .teacher-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#b388ff,transparent);}
-
 .teacher-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;}
-.teacher-badge{
-  display:flex;align-items:center;gap:0.5rem;
-  background:rgba(179,136,255,0.15);border:1px solid rgba(179,136,255,0.3);
-  border-radius:20px;padding:5px 12px;
-}
+.teacher-badge{display:flex;align-items:center;gap:0.5rem;background:rgba(179,136,255,0.15);border:1px solid rgba(179,136,255,0.3);border-radius:20px;padding:5px 12px;}
 .teacher-badge-dot{width:8px;height:8px;border-radius:50%;background:#b388ff;animation:pulse 2s infinite;}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 .teacher-badge-text{color:#d4bfff;font-size:0.78rem;font-weight:500;}
-
 .teacher-title{text-align:center;font-family:var(--font-display);color:#d4bfff;font-size:1.3rem;}
 
-.teacher-tabs{
-  display:flex;gap:6px;padding:0.8rem 1rem;
-  position:sticky;top:0;z-index:50;background:var(--cream);
-}
-.teacher-tab{
-  flex:1;padding:10px;border-radius:var(--radius-sm);
-  border:1.5px solid var(--card-border);background:var(--card-bg);
-  font-family:var(--font-body);font-size:0.82rem;font-weight:500;
-  cursor:pointer;transition:all .2s;text-align:center;color:var(--text-mid);
-}
-.teacher-tab.active{
-  background:linear-gradient(135deg,var(--deep-blue),var(--navy));
-  border-color:var(--gold);color:var(--gold-light);
-}
+.teacher-tabs{display:flex;gap:5px;padding:0.8rem 1rem;position:sticky;top:0;z-index:50;background:var(--cream);flex-wrap:wrap;}
+.teacher-tab{flex:1;min-width:0;padding:9px 6px;border-radius:var(--radius-sm);border:1.5px solid var(--card-border);background:var(--card-bg);font-family:var(--font-body);font-size:0.72rem;font-weight:500;cursor:pointer;transition:all .2s;text-align:center;color:var(--text-mid);white-space:nowrap;}
+.teacher-tab.active{background:linear-gradient(135deg,var(--deep-blue),var(--navy));border-color:var(--gold);color:var(--gold-light);}
 
 .teacher-content{padding:0 1rem;max-width:700px;margin:0 auto;}
 
-.teacher-stats{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem;
-}
-.stat-box{
-  background:var(--card-bg);border:1px solid var(--card-border);
-  border-radius:var(--radius-md);padding:0.8rem;text-align:center;
-}
+.teacher-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1rem;}
+.stat-box{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-md);padding:0.8rem;text-align:center;}
 .stat-num{font-size:1.6rem;font-weight:700;color:var(--gold);}
 .stat-label{font-size:0.68rem;color:var(--text-light);margin-top:2px;}
 
 /* Student cards */
-.student-card{
-  background:var(--card-bg);border:1px solid var(--card-border);
-  border-radius:var(--radius-lg);margin-bottom:0.8rem;overflow:hidden;box-shadow:var(--shadow-sm);
-}
-.student-card-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0.9rem 1rem;cursor:pointer;transition:background .2s;
-}
+.student-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);margin-bottom:0.8rem;overflow:hidden;box-shadow:var(--shadow-sm);}
+.student-card-header{display:flex;justify-content:space-between;align-items:center;padding:0.9rem 1rem;cursor:pointer;transition:background .2s;}
 .student-card-header:hover{background:rgba(212,168,67,0.04);}
-.student-card-name{font-weight:600;font-size:0.95rem;color:var(--text-dark);}
+.student-card-name{font-weight:600;font-size:0.95rem;}
 .student-card-meta{font-size:0.7rem;color:var(--text-light);margin-top:2px;}
 .student-card-arrow{color:var(--text-light);transition:transform .2s;font-size:0.8rem;}
 .student-card.expanded .student-card-arrow{transform:rotate(180deg);}
 .student-card-body{display:none;padding:0 1rem 1rem;border-top:1px solid rgba(212,168,67,0.08);}
 .student-card.expanded .student-card-body{display:block;animation:slideDown .3s ease-out;}
 
-.student-day-grid{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));
-  gap:6px;margin-top:0.6rem;
-}
+.student-day-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:6px;margin-top:0.6rem;}
 .mini-day{background:var(--cream);border-radius:var(--radius-sm);padding:8px;border:1px solid transparent;font-size:0.72rem;}
 .mini-day.has-data{border-color:rgba(122,158,126,0.2);}
 .mini-day-title{font-weight:600;color:var(--text-dark);margin-bottom:3px;}
 .mini-day-row{color:var(--text-mid);line-height:1.6;}
 .mini-day-row .done{color:var(--sage);font-weight:500;}
 
-/* Competition tab */
-.comp-student-row{
-  display:flex;align-items:center;gap:0.7rem;
-  padding:10px 12px;background:var(--card-bg);
-  border:1px solid var(--card-border);border-radius:var(--radius-md);margin-bottom:6px;
-}
-.comp-rank{
-  width:28px;height:28px;border-radius:50%;
-  background:linear-gradient(135deg,var(--gold),#c49a38);
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:0.78rem;color:var(--midnight);flex-shrink:0;
-}
-.comp-rank.r2{background:linear-gradient(135deg,#aaa,#ccc);}
-.comp-rank.r3{background:linear-gradient(135deg,#a0724d,#c49a6e);}
-.comp-rank.rn{background:#e8e4dc;color:var(--text-mid);}
+.card-gen-btn{display:inline-flex;align-items:center;gap:4px;padding:6px 12px;border-radius:20px;border:1.5px solid var(--card-border);background:var(--card-bg);font-family:var(--font-body);font-size:0.72rem;cursor:pointer;transition:all .2s;color:var(--text-mid);margin-top:8px;margin-right:4px;}
+.card-gen-btn:hover{border-color:var(--gold);background:var(--gold-glow);}
+
+/* Competition */
+.comp-student-row{display:flex;align-items:center;gap:0.7rem;padding:10px 12px;background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-md);margin-bottom:6px;}
+.comp-rank{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#c49a38);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.78rem;color:var(--midnight);flex-shrink:0;}
+.comp-rank.r2{background:linear-gradient(135deg,#aaa,#ccc);}.comp-rank.r3{background:linear-gradient(135deg,#a0724d,#c49a6e);}.comp-rank.rn{background:#e8e4dc;color:var(--text-mid);}
 .comp-student-name{flex:1;font-weight:500;font-size:0.9rem;}
 .comp-student-pts{font-weight:700;font-size:1.1rem;color:var(--gold);min-width:30px;text-align:center;}
-.comp-btn{
-  width:32px;height:32px;border-radius:50%;border:1.5px solid #ddd;
-  background:white;font-size:1rem;cursor:pointer;transition:all .15s;
-  display:flex;align-items:center;justify-content:center;
-}
+.comp-btn{width:32px;height:32px;border-radius:50%;border:1.5px solid #ddd;background:white;font-size:1rem;cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;}
 .comp-btn:hover{border-color:var(--gold);background:var(--gold-glow);}
 .comp-btn:active{transform:scale(0.9);}
 .comp-btn.minus:hover{border-color:var(--rose);}
 
-.teacher-search{
-  padding:9px 14px;border:1.5px solid var(--card-border);
-  border-radius:var(--radius-md);background:var(--card-bg);
-  width:100%;font-family:var(--font-body);font-size:0.9rem;
-  outline:none;margin-bottom:0.8rem;transition:border-color .2s;
-}
+.teacher-search{padding:9px 14px;border:1.5px solid var(--card-border);border-radius:var(--radius-md);background:var(--card-bg);width:100%;font-family:var(--font-body);font-size:0.9rem;outline:none;margin-bottom:0.8rem;transition:border-color .2s;}
 .teacher-search:focus{border-color:var(--gold);}
-
 .no-data-msg{text-align:center;color:var(--text-light);padding:2rem;font-size:0.9rem;}
+
+/* ═══════ REPORT TABLE ═══════ */
+.report-table{width:100%;border-collapse:separate;border-spacing:0;font-size:0.72rem;background:white;border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--card-border);margin-bottom:1rem;}
+.report-table th{background:linear-gradient(135deg,var(--deep-blue),var(--navy));color:var(--gold-light);padding:8px 6px;font-weight:500;text-align:center;position:sticky;top:0;font-size:0.68rem;}
+.report-table td{padding:6px;text-align:center;border-bottom:1px solid #f0ebe0;}
+.report-table tr:nth-child(even) td{background:rgba(212,168,67,0.03);}
+.report-table tr:hover td{background:rgba(212,168,67,0.06);}
+.report-table .name-cell{text-align:left;font-weight:500;padding-left:10px;white-space:nowrap;}
+.pct-bar{display:inline-block;height:6px;border-radius:3px;background:var(--sage);vertical-align:middle;margin-left:3px;}
+
+/* ═══════════════════════════════════════
+   PROGRESS CARD OVERLAY (screenshot-ready)
+   ═══════════════════════════════════════ */
+.card-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,0.9);z-index:3000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px);overflow-y:auto;padding:1rem;}
+.card-overlay.active{display:flex;}
+.card-overlay-close{position:fixed;top:15px;right:18px;background:rgba(255,255,255,0.15);border:none;color:white;width:40px;height:40px;border-radius:50%;font-size:1.3rem;cursor:pointer;z-index:3001;display:flex;align-items:center;justify-content:center;}
+
+/* Individual progress card */
+.progress-card{
+  width:380px;max-width:95vw;
+  background:linear-gradient(160deg,#0a1628 0%,#0f2140 35%,#162d50 100%);
+  border-radius:24px;padding:0;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  position:relative;
+}
+.pc-header{padding:24px 24px 16px;text-align:center;position:relative;overflow:hidden;}
+.pc-header::before{content:'';position:absolute;top:-30px;left:-30px;width:120px;height:120px;background:radial-gradient(circle,rgba(212,168,67,0.12),transparent);border-radius:50%;}
+.pc-header::after{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;background:radial-gradient(circle,rgba(122,158,126,0.08),transparent);border-radius:50%;}
+.pc-moon{width:50px;height:50px;margin:0 auto 8px;position:relative;z-index:1;}
+.pc-moon svg{width:100%;height:100%;filter:drop-shadow(0 0 12px rgba(212,168,67,0.4));}
+.pc-brand{font-family:var(--font-display);font-size:0.8rem;color:rgba(240,212,138,0.5);margin-bottom:4px;position:relative;z-index:1;}
+.pc-name{font-family:var(--font-display);font-size:1.6rem;color:var(--gold-light);line-height:1.2;position:relative;z-index:1;}
+.pc-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(212,168,67,0.3),transparent);margin:0 24px;}
+
+/* Stats row */
+.pc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;padding:16px 24px;}
+.pc-stat{text-align:center;}
+.pc-stat-num{font-size:1.6rem;font-weight:700;color:var(--gold-light);line-height:1;}
+.pc-stat-label{font-size:0.62rem;color:rgba(240,212,138,0.4);margin-top:3px;text-transform:uppercase;letter-spacing:0.5px;}
+
+/* 30-day grid */
+.pc-grid-section{padding:12px 20px 16px;}
+.pc-grid-label{font-size:0.62rem;color:rgba(240,212,138,0.35);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;text-align:center;}
+.pc-day-grid{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;}
+.pc-day-cell{
+  aspect-ratio:1;border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.55rem;font-weight:600;color:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);
+  transition:all .2s;
+}
+.pc-day-cell.level-1{background:rgba(122,158,126,0.2);border-color:rgba(122,158,126,0.3);color:rgba(255,255,255,0.5);}
+.pc-day-cell.level-2{background:rgba(122,158,126,0.4);border-color:rgba(122,158,126,0.5);color:rgba(255,255,255,0.7);}
+.pc-day-cell.level-3{background:rgba(122,158,126,0.65);border-color:rgba(122,158,126,0.7);color:white;}
+.pc-day-cell.level-4{background:linear-gradient(135deg,var(--gold),#c49a38);border-color:var(--gold);color:var(--midnight);}
+
+/* Category bars */
+.pc-cats{padding:8px 24px 20px;}
+.pc-cat-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.pc-cat-icon{font-size:0.85rem;width:20px;text-align:center;}
+.pc-cat-name{font-size:0.68rem;color:rgba(240,212,138,0.5);width:55px;}
+.pc-cat-bar-bg{flex:1;height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;}
+.pc-cat-bar-fill{height:100%;border-radius:4px;transition:width .3s;}
+.pc-cat-bar-fill.prayer-fill{background:linear-gradient(90deg,#5c6bc0,#7986cb);}
+.pc-cat-bar-fill.quran-fill{background:linear-gradient(90deg,#2d6a4f,#40916c);}
+.pc-cat-bar-fill.help-fill{background:linear-gradient(90deg,#8b5e3c,#c49a6e);}
+.pc-cat-pct{font-size:0.65rem;color:rgba(240,212,138,0.6);width:32px;text-align:right;}
+
+.pc-footer{padding:8px 24px 16px;text-align:center;}
+.pc-footer-text{font-size:0.6rem;color:rgba(240,212,138,0.25);letter-spacing:0.5px;}
+
+/* ═══════ ALL-PARTICIPANTS CARD ═══════ */
+.all-card{
+  width:420px;max-width:95vw;
+  background:linear-gradient(160deg,#0a1628 0%,#0f2140 35%,#162d50 100%);
+  border-radius:24px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+.all-card .pc-header{padding:20px 24px 14px;}
+.all-card-list{padding:4px 20px 16px;max-height:60vh;overflow-y:auto;}
+.all-card-row{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:8px;margin-bottom:3px;}
+.all-card-row:nth-child(even){background:rgba(255,255,255,0.02);}
+.all-card-rank{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:rgba(240,212,138,0.5);flex-shrink:0;}
+.all-card-row:nth-child(1) .all-card-rank{background:linear-gradient(135deg,var(--gold),#c49a38);color:var(--midnight);}
+.all-card-row:nth-child(2) .all-card-rank{background:linear-gradient(135deg,#aaa,#ccc);color:#333;}
+.all-card-row:nth-child(3) .all-card-rank{background:linear-gradient(135deg,#a0724d,#c49a6e);color:#fff;}
+.all-card-name{flex:1;font-size:0.78rem;color:var(--cream);font-weight:400;}
+.all-card-bar-bg{width:80px;height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;}
+.all-card-bar-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold),#c49a38);}
+.all-card-pct{font-size:0.68rem;font-weight:600;color:var(--gold-light);width:32px;text-align:right;}
 
 /* ═══════ RTL ═══════ */
 html[dir="rtl"]{direction:rtl;}
 html[dir="rtl"] body{font-family:'Amiri',var(--font-body),serif;}
-html[dir="rtl"] .splash-title,html[dir="rtl"] .splash-subtitle,
-html[dir="rtl"] .header-title,html[dir="rtl"] .header-title-sub,
-html[dir="rtl"] .section-title,html[dir="rtl"] .teacher-title{font-family:'Amiri',serif;}
+html[dir="rtl"] .splash-title,html[dir="rtl"] .splash-subtitle,html[dir="rtl"] .header-title,html[dir="rtl"] .header-title-sub,html[dir="rtl"] .section-title,html[dir="rtl"] .teacher-title{font-family:'Amiri',serif;}
 html[dir="rtl"] .prayer-name{min-width:55px;}
+html[dir="rtl"] .report-table .name-cell{text-align:right;padding-right:10px;}
 
-/* ═══════ RESPONSIVE ═══════ */
 @media(max-width:400px){
-  .splash-title{font-size:1.5rem;}
-  .header-title{font-size:1.1rem;}
-  .prayer-opt{padding:4px 6px;font-size:0.65rem;}
-  .prayer-name{font-size:0.82rem;min-width:50px;}
+  .splash-title{font-size:1.5rem;}.header-title{font-size:1.1rem;}
+  .prayer-opt{padding:4px 6px;font-size:0.65rem;}.prayer-name{font-size:0.82rem;min-width:50px;}
   .header-btn{padding:5px 8px;font-size:0.7rem;}
-  .teacher-stats{grid-template-columns:repeat(3,1fr);gap:5px;}
-  .stat-num{font-size:1.2rem;}
+  .teacher-tab{font-size:0.65rem;padding:8px 4px;}
+  .progress-card{width:340px;}.all-card{width:360px;}
 }
 @media(min-width:768px){
   .main-content,.teacher-content{padding:0 2rem;}
@@ -527,51 +352,36 @@ html[dir="rtl"] .prayer-name{min-width:55px;}
 <div class="geometric-bg"></div>
 <div class="save-toast" id="saveToast">✓ <span id="saveToastText">Saved</span></div>
 
-<!-- ══════════ PIN MODAL ══════════ -->
+<!-- PIN MODAL -->
 <div class="modal-overlay" id="pinModal">
   <div class="modal-box">
     <button class="modal-close" onclick="closePin()">&times;</button>
     <div class="modal-title" id="pinModalTitle">Enter PIN</div>
     <div class="modal-desc" id="pinModalDesc">Enter your 4-digit PIN</div>
-    <div class="pin-dots" id="pinDots">
-      <div class="pin-dot"></div><div class="pin-dot"></div>
-      <div class="pin-dot"></div><div class="pin-dot"></div>
-    </div>
+    <div class="pin-dots" id="pinDots"><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div><div class="pin-dot"></div></div>
     <div class="pin-pad">
-      <button class="pin-key" onclick="pinPress('1')">1</button>
-      <button class="pin-key" onclick="pinPress('2')">2</button>
-      <button class="pin-key" onclick="pinPress('3')">3</button>
-      <button class="pin-key" onclick="pinPress('4')">4</button>
-      <button class="pin-key" onclick="pinPress('5')">5</button>
-      <button class="pin-key" onclick="pinPress('6')">6</button>
-      <button class="pin-key" onclick="pinPress('7')">7</button>
-      <button class="pin-key" onclick="pinPress('8')">8</button>
-      <button class="pin-key" onclick="pinPress('9')">9</button>
-      <button class="pin-key action" onclick="pinClear()">✕</button>
-      <button class="pin-key" onclick="pinPress('0')">0</button>
-      <button class="pin-key action" onclick="pinBackspace()">⌫</button>
+      <button class="pin-key" onclick="pinPress('1')">1</button><button class="pin-key" onclick="pinPress('2')">2</button><button class="pin-key" onclick="pinPress('3')">3</button>
+      <button class="pin-key" onclick="pinPress('4')">4</button><button class="pin-key" onclick="pinPress('5')">5</button><button class="pin-key" onclick="pinPress('6')">6</button>
+      <button class="pin-key" onclick="pinPress('7')">7</button><button class="pin-key" onclick="pinPress('8')">8</button><button class="pin-key" onclick="pinPress('9')">9</button>
+      <button class="pin-key action" onclick="pinClear()">✕</button><button class="pin-key" onclick="pinPress('0')">0</button><button class="pin-key action" onclick="pinBackspace()">⌫</button>
     </div>
     <div class="pin-error" id="pinError"></div>
   </div>
 </div>
 
-<!-- ══════════ SPLASH SCREEN ══════════ -->
+<!-- CARD OVERLAY -->
+<div class="card-overlay" id="cardOverlay">
+  <button class="card-overlay-close" onclick="closeCardOverlay()">✕</button>
+  <div id="cardOverlayContent"></div>
+</div>
+
+<!-- SPLASH -->
 <div class="splash-screen" id="splashScreen">
   <div class="splash-stars" id="starsContainer"></div>
   <div class="splash-content">
-    <div class="splash-moon">
-      <svg viewBox="0 0 100 100">
-        <defs><linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style="stop-color:#f0d48a"/><stop offset="100%" style="stop-color:#d4a843"/>
-        </linearGradient></defs>
-        <path d="M50 5 C28 5 10 23 10 50 C10 77 28 95 50 95 C38 85 32 68 32 50 C32 32 38 15 50 5Z" fill="url(#moonGrad)"/>
-        <circle cx="68" cy="22" r="2" fill="#f0d48a" opacity="0.7"/>
-        <circle cx="78" cy="35" r="1.5" fill="#f0d48a" opacity="0.5"/>
-      </svg>
-    </div>
+    <div class="splash-moon"><svg viewBox="0 0 100 100"><defs><linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f0d48a"/><stop offset="100%" style="stop-color:#d4a843"/></linearGradient></defs><path d="M50 5 C28 5 10 23 10 50 C10 77 28 95 50 95 C38 85 32 68 32 50 C32 32 38 15 50 5Z" fill="url(#moonGrad)"/><circle cx="68" cy="22" r="2" fill="#f0d48a" opacity="0.7"/><circle cx="78" cy="35" r="1.5" fill="#f0d48a" opacity="0.5"/></svg></div>
     <h1 class="splash-title">Mr. Riyadh's Ramadan Tracker</h1>
     <p class="splash-subtitle">مفكرة رمضان مع الأستاذ رياض</p>
-
     <div class="splash-input-group">
       <label class="splash-label">Enter your name / أدخل اسمك</label>
       <input type="text" class="splash-input" id="studentNameInput" placeholder="Student Name / اسم الطالب" autocomplete="off" maxlength="50">
@@ -581,20 +391,16 @@ html[dir="rtl"] .prayer-name{min-width:55px;}
       <input type="password" class="splash-input" id="pinSetupInput" placeholder="● ● ● ●" maxlength="4" inputmode="numeric" pattern="[0-9]*" autocomplete="off">
     </div>
     <div class="splash-error" id="nameError"></div>
-
     <button class="splash-btn" id="startBtn" disabled>Start Tracking ✦ ابدأ التتبع</button>
-    <button class="splash-secondary-btn" id="teacherLoginBtn" onclick="openTeacherLogin()">🔐 Teacher Mode / وضع المعلم</button>
+    <button class="splash-secondary-btn" onclick="openTeacherLogin()">🔐 Teacher Mode / وضع المعلم</button>
   </div>
 </div>
 
-<!-- ══════════ STUDENT APP ══════════ -->
+<!-- STUDENT APP -->
 <div class="app" id="mainApp">
   <header class="app-header">
     <div class="header-top">
-      <div class="header-user">
-        <div class="header-avatar" id="userAvatar">S</div>
-        <span class="header-name" id="userName">Student</span>
-      </div>
+      <div class="header-user"><div class="header-avatar" id="userAvatar">S</div><span class="header-name" id="userName">Student</span></div>
       <div class="header-actions">
         <button class="header-btn" onclick="toggleLanguage()"><span id="langLabel">عربي</span></button>
         <button class="header-btn" onclick="logout()"><span data-i18n="exit">Exit</span></button>
@@ -605,37 +411,21 @@ html[dir="rtl"] .prayer-name{min-width:55px;}
       <p class="header-title-sub" data-i18n="app_subtitle">مفكرة رمضان مع الأستاذ رياض</p>
     </div>
   </header>
-
   <div class="day-selector-section">
     <div class="day-selector-label" data-i18n="select_day">Select Day</div>
     <div class="day-scroll" id="dayScroll"></div>
   </div>
-
   <div class="main-content" id="mainContent">
     <div class="competition-banner">
       <div class="comp-points-big" id="myCompPoints">0</div>
       <div class="comp-label" data-i18n="competition_pts">🏆 Competition Points / نقاط المسابقة</div>
     </div>
-
     <div class="section-card">
-      <div class="section-header">
-        <div class="section-icon prayer">🕌</div>
-        <div>
-          <div class="section-title" data-i18n="daily_prayers">Daily Prayers</div>
-          <div class="section-subtitle" data-i18n="daily_prayers_sub">الصلوات الخمس</div>
-        </div>
-      </div>
+      <div class="section-header"><div class="section-icon prayer">🕌</div><div><div class="section-title" data-i18n="daily_prayers">Daily Prayers</div><div class="section-subtitle" data-i18n="daily_prayers_sub">الصلوات الخمس</div></div></div>
       <div class="prayer-grid" id="prayerGrid"></div>
     </div>
-
     <div class="section-card">
-      <div class="section-header">
-        <div class="section-icon quran">📖</div>
-        <div>
-          <div class="section-title" data-i18n="quran_reading">Quran Reading</div>
-          <div class="section-subtitle" data-i18n="quran_reading_sub">قراءة القرآن</div>
-        </div>
-      </div>
+      <div class="section-header"><div class="section-icon quran">📖</div><div><div class="section-title" data-i18n="quran_reading">Quran Reading</div><div class="section-subtitle" data-i18n="quran_reading_sub">قراءة القرآن</div></div></div>
       <div class="quran-input-area">
         <div class="quran-control">
           <button class="quran-btn" onclick="adjustQuran(-0.5)">−</button>
@@ -643,516 +433,175 @@ html[dir="rtl"] .prayer-name{min-width:55px;}
           <button class="quran-btn" onclick="adjustQuran(0.5)">+</button>
           <span class="quran-unit" data-i18n="pages">pages</span>
         </div>
-        <div class="quran-progress">
-          <div class="quran-bar-bg"><div class="quran-bar-fill" id="quranBar"></div></div>
-          <div class="quran-target" data-i18n="daily_goal">Daily goal: 20 pages</div>
-        </div>
+        <div class="quran-progress"><div class="quran-bar-bg"><div class="quran-bar-fill" id="quranBar"></div></div><div class="quran-target" data-i18n="daily_goal">Daily goal: 20 pages</div></div>
       </div>
     </div>
-
     <div class="section-card">
-      <div class="section-header">
-        <div class="section-icon helping">🤲</div>
-        <div>
-          <div class="section-title" data-i18n="helping_parents">Helping Parents</div>
-          <div class="section-subtitle" data-i18n="helping_parents_sub">مساعدة الوالدين</div>
-        </div>
-      </div>
+      <div class="section-header"><div class="section-icon helping">🤲</div><div><div class="section-title" data-i18n="helping_parents">Helping Parents</div><div class="section-subtitle" data-i18n="helping_parents_sub">مساعدة الوالدين</div></div></div>
       <div class="help-toggle-area">
         <button class="help-toggle-btn" id="helpYes" onclick="setHelped(true)"><span data-i18n="yes">Yes ✓</span></button>
         <button class="help-toggle-btn" id="helpNo" onclick="setHelped(false)"><span data-i18n="no">No ✗</span></button>
       </div>
       <div class="help-sub-section" id="helpSubSection">
         <div id="choresList"></div>
-        <div class="add-chore-row">
-          <input type="text" class="add-chore-input" id="newChoreInput" maxlength="60" placeholder="Add a custom chore...">
-          <button class="add-chore-btn" onclick="addCustomChore()"><span data-i18n="add">+ Add</span></button>
-        </div>
+        <div class="add-chore-row"><input type="text" class="add-chore-input" id="newChoreInput" maxlength="60" placeholder="Add a custom chore..."><button class="add-chore-btn" onclick="addCustomChore()"><span data-i18n="add">+ Add</span></button></div>
       </div>
     </div>
   </div>
-
-  <div class="progress-footer">
-    <div class="progress-inner">
-      <div>
-        <div class="progress-text" id="progressText">0%</div>
-        <div class="progress-label" data-i18n="today_progress">Today's Progress</div>
-      </div>
-      <div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div>
-    </div>
-  </div>
+  <div class="progress-footer"><div class="progress-inner"><div><div class="progress-text" id="progressText">0%</div><div class="progress-label" data-i18n="today_progress">Today's Progress</div></div><div class="progress-bar-outer"><div class="progress-bar-inner" id="progressBar"></div></div></div></div>
 </div>
 
-<!-- ══════════ TEACHER DASHBOARD ══════════ -->
+<!-- TEACHER DASHBOARD -->
 <div class="teacher-dashboard" id="teacherDashboard">
   <header class="teacher-header">
     <div class="teacher-top">
-      <div class="teacher-badge">
-        <div class="teacher-badge-dot"></div>
-        <span class="teacher-badge-text">Teacher Mode</span>
-      </div>
+      <div class="teacher-badge"><div class="teacher-badge-dot"></div><span class="teacher-badge-text">Teacher Mode</span></div>
       <button class="header-btn" onclick="exitTeacher()" style="border-color:rgba(179,136,255,0.3);color:#d4bfff;">✕ Exit</button>
     </div>
     <h1 class="teacher-title">📊 Student Dashboard / لوحة المعلم</h1>
   </header>
-
   <div class="teacher-tabs">
-    <button class="teacher-tab active" id="tabOverview" onclick="switchTab('overview')">📋 Overview</button>
-    <button class="teacher-tab" id="tabCompetition" onclick="switchTab('competition')">🏆 Competition</button>
+    <button class="teacher-tab active" id="tabOverview" onclick="switchTab('overview')">📋 Students</button>
+    <button class="teacher-tab" id="tabReport" onclick="switchTab('report')">📊 Report</button>
+    <button class="teacher-tab" id="tabCards" onclick="switchTab('cards')">🎴 Cards</button>
+    <button class="teacher-tab" id="tabCompetition" onclick="switchTab('competition')">🏆 Points</button>
   </div>
-
   <div class="teacher-content" id="teacherContent"></div>
 </div>
 
-<!-- ══════════ FIREBASE ══════════ -->
+<!-- FIREBASE -->
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-
 <script>
-// ═════════════════════════════════════════
-// FIREBASE
-// ═════════════════════════════════════════
-firebase.initializeApp({
-  apiKey: "AIzaSyC9xG4MJtIbONhTMPBNpr16LA_pL4Er7QU",
-  authDomain: "riadh-tracker.firebaseapp.com",
-  databaseURL: "https://riadh-tracker-default-rtdb.europe-west1.firebasedatabase.app",
-  projectId: "riadh-tracker",
-  storageBucket: "riadh-tracker.firebasestorage.app",
-  messagingSenderId: "642829998259",
-  appId: "1:642829998259:web:02683526c97bb675fa78c6"
-});
-const db = firebase.database();
+firebase.initializeApp({apiKey:"AIzaSyC9xG4MJtIbONhTMPBNpr16LA_pL4Er7QU",authDomain:"riadh-tracker.firebaseapp.com",databaseURL:"https://riadh-tracker-default-rtdb.europe-west1.firebasedatabase.app",projectId:"riadh-tracker",storageBucket:"riadh-tracker.firebasestorage.app",messagingSenderId:"642829998259",appId:"1:642829998259:web:02683526c97bb675fa78c6"});
+const db=firebase.database();
 
-// ═════════════════════════════════════════
-// SHA-256 HASHING — PINs never stored in plain text
-// ═════════════════════════════════════════
-async function hashPin(pin) {
-  const data = new TextEncoder().encode('ramadan_almarwa_2025_' + pin);
-  const buf = await crypto.subtle.digest('SHA-256', data);
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
+async function hashPin(pin){const d=new TextEncoder().encode('ramadan_almarwa_2025_'+pin);const b=await crypto.subtle.digest('SHA-256',d);return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');}
+let TEACHER_HASH=null;
+(async()=>{const cc=[49,57,56,52];TEACHER_HASH=await hashPin(cc.map(c=>String.fromCharCode(c)).join(''));})();
 
-// Teacher PIN hash computed at startup from char codes — never appears as readable text
-let TEACHER_HASH = null;
-(async () => {
-  const cc = [49,57,56,52]; // char codes assembled at runtime
-  TEACHER_HASH = await hashPin(cc.map(c => String.fromCharCode(c)).join(''));
-})();
-
-// ═════════════════════════════════════════
-// i18n
-// ═════════════════════════════════════════
-const LANG = {
-  en: {
-    app_title:"Mr. Riyadh's Ramadan Tracker", app_subtitle:"مفكرة رمضان مع الأستاذ رياض",
-    select_day:"Select Day", daily_prayers:"Daily Prayers", daily_prayers_sub:"الصلوات الخمس",
-    quran_reading:"Quran Reading", quran_reading_sub:"قراءة القرآن",
-    helping_parents:"Helping Parents", helping_parents_sub:"مساعدة الوالدين",
-    pages:"pages", daily_goal:"Daily goal: 20 pages", yes:"Yes ✓", no:"No ✗",
-    add:"+ Add", saved:"Saved ✓", today_progress:"Today's Progress", exit:"Exit",
-    uncompleted:"—", home:"Home 🏠", mosque:"Mosque 🕌",
-    fajr:"Fajr", dhuhr:"Dhuhr", asr:"Asr", maghrib:"Maghrib", isha:"Isha",
-    day_label:"Day", name_required:"Please enter your name",
-    pin_required:"Please set a 4-digit PIN", pin_wrong:"Wrong PIN ✕",
-    add_placeholder:"Add a custom chore...", lang_switch:"عربي",
-    competition_pts:"🏆 Competition Points / نقاط المسابقة",
-    enter_pin:"Enter PIN", student_pin:"Enter your PIN to continue",
-    teacher_pin:"Enter teacher PIN",
-    chore_food:"Bringing food to the table", chore_groceries:"Buying groceries",
-  },
-  ar: {
-    app_title:"مفكرة رمضان مع الأستاذ رياض", app_subtitle:"Mr. Riyadh's Ramadan Tracker",
-    select_day:"اختر اليوم", daily_prayers:"الصلوات الخمس", daily_prayers_sub:"Daily Prayers",
-    quran_reading:"قراءة القرآن", quran_reading_sub:"Quran Reading",
-    helping_parents:"مساعدة الوالدين", helping_parents_sub:"Helping Parents",
-    pages:"صفحة", daily_goal:"الهدف اليومي: ٢٠ صفحة", yes:"نعم ✓", no:"لا ✗",
-    add:"+ أضف", saved:"تم الحفظ ✓", today_progress:"تقدم اليوم", exit:"خروج",
-    uncompleted:"—", home:"المنزل 🏠", mosque:"المسجد 🕌",
-    fajr:"الفجر", dhuhr:"الظهر", asr:"العصر", maghrib:"المغرب", isha:"العشاء",
-    day_label:"يوم", name_required:"الرجاء إدخال اسمك",
-    pin_required:"الرجاء إنشاء رمز من ٤ أرقام", pin_wrong:"رمز خاطئ ✕",
-    add_placeholder:"أضف مهمة جديدة...", lang_switch:"English",
-    competition_pts:"🏆 نقاط المسابقة / Competition Points",
-    enter_pin:"أدخل الرمز", student_pin:"أدخل الرمز السري للمتابعة",
-    teacher_pin:"أدخل رمز المعلم",
-    chore_food:"تقديم الطعام للمائدة", chore_groceries:"شراء المستلزمات",
-  }
+const LANG={
+  en:{app_title:"Mr. Riyadh's Ramadan Tracker",app_subtitle:"مفكرة رمضان مع الأستاذ رياض",select_day:"Select Day",daily_prayers:"Daily Prayers",daily_prayers_sub:"الصلوات الخمس",quran_reading:"Quran Reading",quran_reading_sub:"قراءة القرآن",helping_parents:"Helping Parents",helping_parents_sub:"مساعدة الوالدين",pages:"pages",daily_goal:"Daily goal: 20 pages",yes:"Yes ✓",no:"No ✗",add:"+ Add",saved:"Saved ✓",today_progress:"Today's Progress",exit:"Exit",uncompleted:"—",home:"Home 🏠",mosque:"Mosque 🕌",fajr:"Fajr",dhuhr:"Dhuhr",asr:"Asr",maghrib:"Maghrib",isha:"Isha",day_label:"Day",name_required:"Please enter your name",pin_required:"Please set a 4-digit PIN",pin_wrong:"Wrong PIN ✕",add_placeholder:"Add a custom chore...",lang_switch:"عربي",competition_pts:"🏆 Competition Points / نقاط المسابقة",enter_pin:"Enter PIN",student_pin:"Enter your PIN to continue",teacher_pin:"Enter teacher PIN",chore_food:"Bringing food to the table",chore_groceries:"Buying groceries"},
+  ar:{app_title:"مفكرة رمضان مع الأستاذ رياض",app_subtitle:"Mr. Riyadh's Ramadan Tracker",select_day:"اختر اليوم",daily_prayers:"الصلوات الخمس",daily_prayers_sub:"Daily Prayers",quran_reading:"قراءة القرآن",quran_reading_sub:"Quran Reading",helping_parents:"مساعدة الوالدين",helping_parents_sub:"Helping Parents",pages:"صفحة",daily_goal:"الهدف اليومي: ٢٠ صفحة",yes:"نعم ✓",no:"لا ✗",add:"+ أضف",saved:"تم الحفظ ✓",today_progress:"تقدم اليوم",exit:"خروج",uncompleted:"—",home:"المنزل 🏠",mosque:"المسجد 🕌",fajr:"الفجر",dhuhr:"الظهر",asr:"العصر",maghrib:"المغرب",isha:"العشاء",day_label:"يوم",name_required:"الرجاء إدخال اسمك",pin_required:"الرجاء إنشاء رمز من ٤ أرقام",pin_wrong:"رمز خاطئ ✕",add_placeholder:"أضف مهمة جديدة...",lang_switch:"English",competition_pts:"🏆 نقاط المسابقة / Competition Points",enter_pin:"أدخل الرمز",student_pin:"أدخل الرمز السري للمتابعة",teacher_pin:"أدخل رمز المعلم",chore_food:"تقديم الطعام للمائدة",chore_groceries:"شراء المستلزمات"}
 };
 
-// ═════════════════════════════════════════
-// STATE
-// ═════════════════════════════════════════
-let currentLang = 'en', studentName = '', studentKey = '', selectedDay = 1;
-let allData = {}, pinBuffer = '', pinCallback = null, teacherTab = 'overview', allStudentsCache = {};
-const PRAYERS = ['fajr','dhuhr','asr','maghrib','isha'];
+let currentLang='en',studentName='',studentKey='',selectedDay=1,allData={},pinBuffer='',pinCallback=null,teacherTab='overview',allStudentsCache={};
+const PRAYERS=['fajr','dhuhr','asr','maghrib','isha'];
 
-// ═════════════════════════════════════════
-// INIT
-// ═════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
-  generateStars();
-  setupSplash();
-  const saved = localStorage.getItem('ramadan_student');
-  if (saved) {
-    const p = JSON.parse(saved);
-    studentName = p.name; studentKey = p.key; currentLang = p.lang || 'en';
-    checkStudentPin(studentKey, () => loadFromFirebase(() => showApp()));
-  }
-});
+// ═══════ INIT ═══════
+document.addEventListener('DOMContentLoaded',()=>{generateStars();setupSplash();const s=localStorage.getItem('ramadan_student');if(s){const p=JSON.parse(s);studentName=p.name;studentKey=p.key;currentLang=p.lang||'en';checkStudentPin(studentKey,()=>loadFromFirebase(()=>showApp()));}});
+function generateStars(){const c=document.getElementById('starsContainer');for(let i=0;i<50;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.animationDuration=(2+Math.random()*3)+'s';c.appendChild(s);}}
 
-function generateStars() {
-  const c = document.getElementById('starsContainer');
-  for (let i=0;i<50;i++){const s=document.createElement('div');s.className='star';s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDelay=Math.random()*3+'s';s.style.animationDuration=(2+Math.random()*3)+'s';c.appendChild(s);}
+// ═══════ SPLASH ═══════
+let splashMode='idle';
+function setupSplash(){
+  const nameInp=document.getElementById('studentNameInput'),pinInp=document.getElementById('pinSetupInput'),pinGrp=document.getElementById('pinSetupGroup'),btn=document.getElementById('startBtn');let ck=null;
+  nameInp.addEventListener('input',()=>{document.getElementById('nameError').textContent='';const n=nameInp.value.trim();if(n.length<2){pinGrp.style.display='none';btn.disabled=true;splashMode='idle';return;}clearTimeout(ck);ck=setTimeout(()=>{const k=n.replace(/[.#$[\]]/g,'_').replace(/\s+/g,'_');db.ref('ramadan/'+k+'/pinHash').once('value',snap=>{if(snap.val()){splashMode='login';pinGrp.style.display='none';btn.textContent='🔐 Login / دخول';btn.disabled=false;btn.dataset.key=k;}else{splashMode='register';pinGrp.style.display='block';btn.textContent='Start Tracking ✦ ابدأ التتبع';btn.dataset.key=k;chkReg();}});},400);});
+  pinInp.addEventListener('input',()=>{pinInp.value=pinInp.value.replace(/\D/g,'').slice(0,4);chkReg();});
+  function chkReg(){btn.disabled=!(nameInp.value.trim().length>=2&&pinInp.value.length===4);}
+  btn.addEventListener('click',async()=>{const n=nameInp.value.trim();if(n.length<2){document.getElementById('nameError').textContent=LANG[currentLang].name_required;return;}const k=btn.dataset.key;if(splashMode==='login'){studentName=n;studentKey=k;checkStudentPin(k,()=>{localStorage.setItem('ramadan_student',JSON.stringify({name:studentName,key:studentKey,lang:currentLang}));loadFromFirebase(()=>showApp());});}else{const pin=pinInp.value;if(pin.length!==4){document.getElementById('nameError').textContent=LANG[currentLang].pin_required;return;}studentName=n;studentKey=k;const h=await hashPin(pin);await db.ref('ramadan/'+studentKey).update({pinHash:h,name:studentName});localStorage.setItem('ramadan_student',JSON.stringify({name:studentName,key:studentKey,lang:currentLang}));loadFromFirebase(()=>showApp());}});
+  nameInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!btn.disabled)btn.click();});pinInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!btn.disabled)btn.click();});
 }
+function checkStudentPin(key,onSuccess){db.ref('ramadan/'+key+'/pinHash').once('value',snap=>{const st=snap.val();if(!st){onSuccess();return;}openPinModal(LANG[currentLang].enter_pin,LANG[currentLang].student_pin,async en=>(await hashPin(en))===st,onSuccess);});}
 
-// ═════════════════════════════════════════
-// SPLASH / REGISTRATION
-// ═════════════════════════════════════════
-let splashMode = 'idle'; // idle, register, login
-
-function setupSplash() {
-  const nameInp = document.getElementById('studentNameInput');
-  const pinInp = document.getElementById('pinSetupInput');
-  const pinGrp = document.getElementById('pinSetupGroup');
-  const btn = document.getElementById('startBtn');
-  let checkTimer = null;
-
-  nameInp.addEventListener('input', () => {
-    document.getElementById('nameError').textContent = '';
-    const name = nameInp.value.trim();
-    if (name.length < 2) { pinGrp.style.display='none'; btn.disabled=true; splashMode='idle'; return; }
-    clearTimeout(checkTimer);
-    checkTimer = setTimeout(() => {
-      const key = name.replace(/[.#$[\]]/g,'_').replace(/\s+/g,'_');
-      db.ref('ramadan/'+key+'/pinHash').once('value', snap => {
-        if (snap.val()) {
-          splashMode = 'login'; pinGrp.style.display='none';
-          btn.textContent = '🔐 Login / دخول'; btn.disabled = false;
-          btn.dataset.key = key;
-        } else {
-          splashMode = 'register'; pinGrp.style.display='block';
-          btn.textContent = 'Start Tracking ✦ ابدأ التتبع';
-          btn.dataset.key = key;
-          checkRegReady();
-        }
-      });
-    }, 400);
-  });
-
-  pinInp.addEventListener('input', () => { pinInp.value = pinInp.value.replace(/\D/g,'').slice(0,4); checkRegReady(); });
-
-  function checkRegReady() {
-    btn.disabled = !(nameInp.value.trim().length>=2 && pinInp.value.length===4);
-  }
-
-  btn.addEventListener('click', async () => {
-    const name = nameInp.value.trim();
-    if (name.length<2){document.getElementById('nameError').textContent=LANG[currentLang].name_required;return;}
-    const key = btn.dataset.key;
-
-    if (splashMode==='login') {
-      studentName=name; studentKey=key;
-      checkStudentPin(key, () => {
-        localStorage.setItem('ramadan_student',JSON.stringify({name:studentName,key:studentKey,lang:currentLang}));
-        loadFromFirebase(()=>showApp());
-      });
-    } else {
-      const pin=pinInp.value;
-      if(pin.length!==4){document.getElementById('nameError').textContent=LANG[currentLang].pin_required;return;}
-      studentName=name; studentKey=key;
-      const h=await hashPin(pin);
-      await db.ref('ramadan/'+studentKey).update({pinHash:h, name:studentName});
-      localStorage.setItem('ramadan_student',JSON.stringify({name:studentName,key:studentKey,lang:currentLang}));
-      loadFromFirebase(()=>showApp());
-    }
-  });
-
-  nameInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!btn.disabled)btn.click();});
-  pinInp.addEventListener('keydown',e=>{if(e.key==='Enter'&&!btn.disabled)btn.click();});
-}
-
-function checkStudentPin(key, onSuccess) {
-  db.ref('ramadan/'+key+'/pinHash').once('value', snap => {
-    const stored = snap.val();
-    if (!stored) { onSuccess(); return; }
-    openPinModal(LANG[currentLang].enter_pin, LANG[currentLang].student_pin,
-      async entered => (await hashPin(entered)) === stored, onSuccess);
-  });
-}
-
-// ═════════════════════════════════════════
-// PIN MODAL
-// ═════════════════════════════════════════
-function openPinModal(title,desc,validateFn,successFn) {
-  pinBuffer='';
-  document.getElementById('pinModalTitle').textContent=title;
-  document.getElementById('pinModalDesc').textContent=desc;
-  document.getElementById('pinError').textContent='';
-  updatePinDots();
-  document.getElementById('pinModal').classList.add('active');
-  pinCallback={validate:validateFn,success:successFn};
-}
-
+// ═══════ PIN MODAL ═══════
+function openPinModal(t,d,vFn,sFn){pinBuffer='';document.getElementById('pinModalTitle').textContent=t;document.getElementById('pinModalDesc').textContent=d;document.getElementById('pinError').textContent='';updatePinDots();document.getElementById('pinModal').classList.add('active');pinCallback={validate:vFn,success:sFn};}
 function closePin(){document.getElementById('pinModal').classList.remove('active');pinBuffer='';pinCallback=null;}
-
-function pinPress(n){
-  if(pinBuffer.length>=4)return;
-  pinBuffer+=n; updatePinDots();
-  if(pinBuffer.length===4)setTimeout(submitPin,200);
-}
+function pinPress(n){if(pinBuffer.length>=4)return;pinBuffer+=n;updatePinDots();if(pinBuffer.length===4)setTimeout(submitPin,200);}
 function pinBackspace(){pinBuffer=pinBuffer.slice(0,-1);updatePinDots();document.getElementById('pinError').textContent='';}
 function pinClear(){pinBuffer='';updatePinDots();document.getElementById('pinError').textContent='';}
 function updatePinDots(){document.querySelectorAll('#pinDots .pin-dot').forEach((d,i)=>d.classList.toggle('filled',i<pinBuffer.length));}
+async function submitPin(){if(!pinCallback)return;if(await pinCallback.validate(pinBuffer)){const fn=pinCallback.success;closePin();fn();}else{document.getElementById('pinError').textContent=LANG[currentLang].pin_wrong;pinBuffer='';updatePinDots();const b=document.querySelector('.modal-box');b.style.animation='none';b.offsetHeight;b.style.animation='shake 0.4s ease-out';}}
 
-async function submitPin(){
-  if(!pinCallback)return;
-  if(await pinCallback.validate(pinBuffer)){
-    const onSuccess=pinCallback.success;
-    closePin();
-    onSuccess();
-  } else{
-    document.getElementById('pinError').textContent=LANG[currentLang].pin_wrong;
-    pinBuffer='';updatePinDots();
-    const box=document.querySelector('.modal-box');
-    box.style.animation='none';box.offsetHeight;box.style.animation='shake 0.4s ease-out';
-  }
-}
+// ═══════ TEACHER LOGIN ═══════
+function openTeacherLogin(){openPinModal('🔐 Teacher Mode',LANG[currentLang].teacher_pin,async en=>(await hashPin(en))===TEACHER_HASH,()=>{document.getElementById('splashScreen').classList.add('hidden');document.getElementById('mainApp').classList.remove('active');document.getElementById('teacherDashboard').classList.add('active');loadAllStudents();});}
 
-// ═════════════════════════════════════════
-// TEACHER LOGIN
-// ═════════════════════════════════════════
-function openTeacherLogin(){
-  openPinModal('🔐 Teacher Mode', LANG[currentLang].teacher_pin,
-    async entered => (await hashPin(entered))===TEACHER_HASH,
-    () => {
-      document.getElementById('splashScreen').classList.add('hidden');
-      document.getElementById('mainApp').classList.remove('active');
-      document.getElementById('teacherDashboard').classList.add('active');
-      loadAllStudents();
-    });
-}
+// ═══════ FIREBASE ═══════
+function loadFromFirebase(cb){db.ref('ramadan/'+studentKey).once('value',snap=>{const v=snap.val();allData=(v&&v.data)?v.data:{};if(cb)cb();});}
+function saveToFirebase(){db.ref('ramadan/'+studentKey).update({name:studentName,data:allData,lastUpdated:Date.now()});showSaveToast();}
+function showSaveToast(){const t=document.getElementById('saveToast');document.getElementById('saveToastText').textContent=LANG[currentLang].saved;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500);}
 
-// ═════════════════════════════════════════
-// FIREBASE OPS
-// ═════════════════════════════════════════
-function loadFromFirebase(cb){
-  db.ref('ramadan/'+studentKey).once('value',snap=>{
-    const v=snap.val();
-    allData=(v&&v.data)?v.data:{};
-    if(cb)cb();
-  });
-}
+// ═══════ SHOW APP ═══════
+function showApp(){document.getElementById('splashScreen').classList.add('hidden');document.getElementById('mainApp').classList.add('active');applyLanguage();renderHeader();renderDaySelector();renderDay();loadMyPoints();}
+function renderHeader(){document.getElementById('userName').textContent=studentName;document.getElementById('userAvatar').textContent=studentName.charAt(0).toUpperCase();}
 
-function saveToFirebase(){
-  db.ref('ramadan/'+studentKey).update({name:studentName,data:allData,lastUpdated:Date.now()});
-  showSaveToast();
-}
+// ═══════ LANGUAGE ═══════
+function toggleLanguage(){currentLang=currentLang==='en'?'ar':'en';localStorage.setItem('ramadan_student',JSON.stringify({name:studentName,key:studentKey,lang:currentLang}));applyLanguage();renderDaySelector();renderDay();}
+function applyLanguage(){const a=currentLang==='ar';document.documentElement.setAttribute('dir',a?'rtl':'ltr');document.documentElement.setAttribute('lang',a?'ar':'en');document.getElementById('langLabel').textContent=LANG[currentLang].lang_switch;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(LANG[currentLang][k])el.textContent=LANG[currentLang][k];});const ci=document.getElementById('newChoreInput');if(ci)ci.placeholder=LANG[currentLang].add_placeholder;}
 
-function showSaveToast(){
-  const t=document.getElementById('saveToast');
-  document.getElementById('saveToastText').textContent=LANG[currentLang].saved;
-  t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1500);
-}
+// ═══════ DAY SELECTOR ═══════
+function renderDaySelector(){const s=document.getElementById('dayScroll');s.innerHTML='';for(let i=1;i<=30;i++){const c=document.createElement('div');c.className='day-chip'+(i===selectedDay?' active':'');if(allData['day'+i]&&hasDayData(allData['day'+i]))c.classList.add('has-data');c.innerHTML=`<span class="day-num">${i}</span><span class="day-label">${LANG[currentLang].day_label}</span><span class="day-dot"></span>`;c.onclick=()=>{selectedDay=i;renderDaySelector();renderDay();};s.appendChild(c);}const a=s.querySelector('.active');if(a)setTimeout(()=>a.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}),50);}
+function hasDayData(d){if(!d)return false;if(d.quran>0)return true;if(d.helped===true)return true;if(d.prayers)for(const p of PRAYERS)if(d.prayers[p]&&d.prayers[p]!=='none')return true;return false;}
 
-// ═════════════════════════════════════════
-// SHOW APP
-// ═════════════════════════════════════════
-function showApp(){
-  document.getElementById('splashScreen').classList.add('hidden');
-  document.getElementById('mainApp').classList.add('active');
-  applyLanguage(); renderHeader(); renderDaySelector(); renderDay(); loadMyPoints();
-}
-
-function renderHeader(){
-  document.getElementById('userName').textContent=studentName;
-  document.getElementById('userAvatar').textContent=studentName.charAt(0).toUpperCase();
-}
-
-// ═════════════════════════════════════════
-// LANGUAGE
-// ═════════════════════════════════════════
-function toggleLanguage(){
-  currentLang=currentLang==='en'?'ar':'en';
-  localStorage.setItem('ramadan_student',JSON.stringify({name:studentName,key:studentKey,lang:currentLang}));
-  applyLanguage();renderDaySelector();renderDay();
-}
-
-function applyLanguage(){
-  const isAr=currentLang==='ar';
-  document.documentElement.setAttribute('dir',isAr?'rtl':'ltr');
-  document.documentElement.setAttribute('lang',isAr?'ar':'en');
-  document.getElementById('langLabel').textContent=LANG[currentLang].lang_switch;
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const k=el.getAttribute('data-i18n');
-    if(LANG[currentLang][k])el.textContent=LANG[currentLang][k];
-  });
-  const ci=document.getElementById('newChoreInput');
-  if(ci)ci.placeholder=LANG[currentLang].add_placeholder;
-}
-
-// ═════════════════════════════════════════
-// DAY SELECTOR
-// ═════════════════════════════════════════
-function renderDaySelector(){
-  const s=document.getElementById('dayScroll');s.innerHTML='';
-  for(let i=1;i<=30;i++){
-    const c=document.createElement('div');
-    c.className='day-chip'+(i===selectedDay?' active':'');
-    if(allData['day'+i]&&hasDayData(allData['day'+i]))c.classList.add('has-data');
-    c.innerHTML=`<span class="day-num">${i}</span><span class="day-label">${LANG[currentLang].day_label}</span><span class="day-dot"></span>`;
-    c.onclick=()=>{selectedDay=i;renderDaySelector();renderDay();};
-    s.appendChild(c);
-  }
-  const a=s.querySelector('.active');
-  if(a)setTimeout(()=>a.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'}),50);
-}
-
-function hasDayData(d){
-  if(!d)return false;
-  if(d.quran>0)return true;
-  if(d.helped===true)return true;
-  if(d.prayers)for(const p of PRAYERS)if(d.prayers[p]&&d.prayers[p]!=='none')return true;
-  return false;
-}
-
-// ═════════════════════════════════════════
-// DAY CONTENT
-// ═════════════════════════════════════════
-function getDayData(){
-  const k='day'+selectedDay;
-  if(!allData[k])allData[k]={prayers:{},quran:0,helped:null,chores:[]};
-  return allData[k];
-}
-
+// ═══════ DAY CONTENT ═══════
+function getDayData(){const k='day'+selectedDay;if(!allData[k])allData[k]={prayers:{},quran:0,helped:null,chores:[]};return allData[k];}
 function renderDay(){renderPrayers();renderQuran();renderHelping();updateProgress();}
-
-function renderPrayers(){
-  const g=document.getElementById('prayerGrid');g.innerHTML='';
-  const d=getDayData();if(!d.prayers)d.prayers={};
-  PRAYERS.forEach(p=>{
-    const st=d.prayers[p]||'none';
-    const r=document.createElement('div');
-    r.className='prayer-row'+(st!=='none'?' completed':'');
-    r.innerHTML=`<span class="prayer-name">${LANG[currentLang][p]}</span>
-      <div class="prayer-options">
-        <button class="prayer-opt" onclick="setPrayer('${p}','none')">${LANG[currentLang].uncompleted}</button>
-        <button class="prayer-opt ${st==='home'?'home-active':''}" onclick="setPrayer('${p}','home')">${LANG[currentLang].home}</button>
-        <button class="prayer-opt ${st==='mosque'?'mosque-active':''}" onclick="setPrayer('${p}','mosque')">${LANG[currentLang].mosque}</button>
-      </div>`;
-    g.appendChild(r);
-  });
-}
-
+function renderPrayers(){const g=document.getElementById('prayerGrid');g.innerHTML='';const d=getDayData();if(!d.prayers)d.prayers={};PRAYERS.forEach(p=>{const st=d.prayers[p]||'none';const r=document.createElement('div');r.className='prayer-row'+(st!=='none'?' completed':'');r.innerHTML=`<span class="prayer-name">${LANG[currentLang][p]}</span><div class="prayer-options"><button class="prayer-opt" onclick="setPrayer('${p}','none')">${LANG[currentLang].uncompleted}</button><button class="prayer-opt ${st==='home'?'home-active':''}" onclick="setPrayer('${p}','home')">${LANG[currentLang].home}</button><button class="prayer-opt ${st==='mosque'?'mosque-active':''}" onclick="setPrayer('${p}','mosque')">${LANG[currentLang].mosque}</button></div>`;g.appendChild(r);});}
 function setPrayer(p,s){const d=getDayData();if(!d.prayers)d.prayers={};d.prayers[p]=s;saveToFirebase();renderPrayers();updateProgress();renderDaySelector();}
-
 function renderQuran(){const d=getDayData();document.getElementById('quranInput').value=d.quran||0;updateQuranBar(d.quran||0);}
-
-function adjustQuran(delta){
-  const inp=document.getElementById('quranInput');
-  let v=Math.max(0,Math.min(600,(parseFloat(inp.value)||0)+delta));
-  v=Math.round(v*2)/2;inp.value=v;onQuranChange();
-}
-
-function onQuranChange(){
-  const inp=document.getElementById('quranInput');
-  let v=Math.max(0,Math.min(600,parseFloat(inp.value)||0));
-  v=Math.round(v*2)/2;inp.value=v;
-  getDayData().quran=v;updateQuranBar(v);saveToFirebase();updateProgress();renderDaySelector();
-}
-
+function adjustQuran(delta){const inp=document.getElementById('quranInput');let v=Math.max(0,Math.min(600,(parseFloat(inp.value)||0)+delta));v=Math.round(v*2)/2;inp.value=v;onQuranChange();}
+function onQuranChange(){const inp=document.getElementById('quranInput');let v=Math.max(0,Math.min(600,parseFloat(inp.value)||0));v=Math.round(v*2)/2;inp.value=v;getDayData().quran=v;updateQuranBar(v);saveToFirebase();updateProgress();renderDaySelector();}
 function updateQuranBar(v){document.getElementById('quranBar').style.width=Math.min(100,(v/20)*100)+'%';}
-
-function renderHelping(){
-  const d=getDayData();
-  document.getElementById('helpYes').className='help-toggle-btn'+(d.helped===true?' yes-active':'');
-  document.getElementById('helpNo').className='help-toggle-btn'+(d.helped===false?' no-active':'');
-  document.getElementById('helpSubSection').className='help-sub-section'+(d.helped===true?' visible':'');
-  if(d.helped===true)renderChores();
-}
-
-function setHelped(v){
-  const d=getDayData();d.helped=v;
-  if(v&&(!d.chores||d.chores.length===0)){
-    d.chores=[
-      {text:LANG[currentLang].chore_food,checked:false,default:true},
-      {text:LANG[currentLang].chore_groceries,checked:false,default:true}
-    ];
-  }
-  saveToFirebase();renderHelping();updateProgress();renderDaySelector();
-}
-
-function renderChores(){
-  const d=getDayData();if(!d.chores)d.chores=[];
-  const list=document.getElementById('choresList');list.innerHTML='';
-  d.chores.forEach((ch,i)=>{
-    const item=document.createElement('div');
-    item.className='chore-item'+(ch.checked?' checked':'');
-    item.innerHTML=`<div class="chore-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>
-      <span class="chore-text">${escapeHtml(ch.text)}</span>
-      ${!ch.default?'<button class="chore-remove" onclick="event.stopPropagation();removeChore('+i+')">✕</button>':''}`;
-    item.addEventListener('click',()=>toggleChore(i));
-    list.appendChild(item);
-  });
-  document.getElementById('newChoreInput').placeholder=LANG[currentLang].add_placeholder;
-}
-
+function renderHelping(){const d=getDayData();document.getElementById('helpYes').className='help-toggle-btn'+(d.helped===true?' yes-active':'');document.getElementById('helpNo').className='help-toggle-btn'+(d.helped===false?' no-active':'');document.getElementById('helpSubSection').className='help-sub-section'+(d.helped===true?' visible':'');if(d.helped===true)renderChores();}
+function setHelped(v){const d=getDayData();d.helped=v;if(v&&(!d.chores||d.chores.length===0)){d.chores=[{text:LANG[currentLang].chore_food,checked:false,default:true},{text:LANG[currentLang].chore_groceries,checked:false,default:true}];}saveToFirebase();renderHelping();updateProgress();renderDaySelector();}
+function renderChores(){const d=getDayData();if(!d.chores)d.chores=[];const list=document.getElementById('choresList');list.innerHTML='';d.chores.forEach((ch,i)=>{const item=document.createElement('div');item.className='chore-item'+(ch.checked?' checked':'');item.innerHTML=`<div class="chore-check"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="chore-text">${escapeHtml(ch.text)}</span>${!ch.default?'<button class="chore-remove" onclick="event.stopPropagation();removeChore('+i+')">✕</button>':''}`;item.addEventListener('click',()=>toggleChore(i));list.appendChild(item);});document.getElementById('newChoreInput').placeholder=LANG[currentLang].add_placeholder;}
 function toggleChore(i){getDayData().chores[i].checked=!getDayData().chores[i].checked;saveToFirebase();renderChores();updateProgress();}
 function removeChore(i){getDayData().chores.splice(i,1);saveToFirebase();renderChores();}
-function addCustomChore(){
-  const inp=document.getElementById('newChoreInput');const t=inp.value.trim();if(!t)return;
-  const d=getDayData();if(!d.chores)d.chores=[];
-  d.chores.push({text:t,checked:false,default:false});inp.value='';saveToFirebase();renderChores();
-}
+function addCustomChore(){const inp=document.getElementById('newChoreInput');const t=inp.value.trim();if(!t)return;const d=getDayData();if(!d.chores)d.chores=[];d.chores.push({text:t,checked:false,default:false});inp.value='';saveToFirebase();renderChores();}
 document.addEventListener('keydown',e=>{if(e.target.id==='newChoreInput'&&e.key==='Enter')addCustomChore();});
 
-// ═════════════════════════════════════════
-// PROGRESS
-// ═════════════════════════════════════════
-function updateProgress(){
-  const d=getDayData();let score=0,total=7;
-  if(d.prayers)PRAYERS.forEach(p=>{if(d.prayers[p]&&d.prayers[p]!=='none')score+=(d.prayers[p]==='mosque'?1:0.8);});
-  score+=Math.min(1,(d.quran||0)/20);
-  if(d.helped===true)score+=0.5;
-  if(d.helped===true&&d.chores){const chk=d.chores.filter(c=>c.checked).length;if(d.chores.length>0)score+=0.5*(chk/d.chores.length);}
-  const pct=Math.round((score/total)*100);
-  document.getElementById('progressBar').style.width=pct+'%';
-  document.getElementById('progressText').textContent=pct+'%';
-}
-
-// ═════════════════════════════════════════
-// COMPETITION (student view)
-// ═════════════════════════════════════════
-function loadMyPoints(){
-  db.ref('ramadan_competition/'+studentKey+'/points').on('value',snap=>{
-    document.getElementById('myCompPoints').textContent=snap.val()||0;
-  });
-}
-
-// ═════════════════════════════════════════
-// LOGOUT
-// ═════════════════════════════════════════
+// ═══════ PROGRESS ═══════
+function updateProgress(){const d=getDayData();let score=0,total=7;if(d.prayers)PRAYERS.forEach(p=>{if(d.prayers[p]&&d.prayers[p]!=='none')score+=(d.prayers[p]==='mosque'?1:0.8);});score+=Math.min(1,(d.quran||0)/20);if(d.helped===true)score+=0.5;if(d.helped===true&&d.chores){const chk=d.chores.filter(c=>c.checked).length;if(d.chores.length>0)score+=0.5*(chk/d.chores.length);}const pct=Math.round((score/total)*100);document.getElementById('progressBar').style.width=pct+'%';document.getElementById('progressText').textContent=pct+'%';}
+function loadMyPoints(){db.ref('ramadan_competition/'+studentKey+'/points').on('value',snap=>{document.getElementById('myCompPoints').textContent=snap.val()||0;});}
 function logout(){localStorage.removeItem('ramadan_student');location.reload();}
-
 function escapeHtml(t){const d=document.createElement('div');d.textContent=t;return d.innerHTML;}
+
+// ═══════════════════════════════════════════════
+// ANALYTICS HELPERS
+// ═══════════════════════════════════════════════
+function calcStudentStats(data){
+  let days=0,prayers=0,mosquePrayers=0,quran=0,helped=0;
+  for(let i=1;i<=30;i++){
+    const d=data?.['day'+i];if(!d)continue;
+    if(hasDayData(d))days++;
+    if(d.prayers)PRAYERS.forEach(p=>{if(d.prayers[p]&&d.prayers[p]!=='none'){prayers++;if(d.prayers[p]==='mosque')mosquePrayers++;}});
+    quran+=(d.quran||0);
+    if(d.helped===true)helped++;
+  }
+  const maxPrayers=days*5||1;
+  const prayerPct=Math.round((prayers/(30*5))*100);
+  const quranPct=Math.round((quran/(30*20))*100);
+  const helpPct=Math.round((helped/30)*100);
+  const overall=Math.round((prayerPct+quranPct+helpPct)/3);
+  return{days,prayers,mosquePrayers,quran,helped,prayerPct,quranPct,helpPct,overall};
+}
+
+function getDayScore(data,dayNum){
+  const d=data?.['day'+dayNum];if(!d)return 0;
+  let s=0;
+  if(d.prayers)PRAYERS.forEach(p=>{if(d.prayers[p]&&d.prayers[p]!=='none')s+=(d.prayers[p]==='mosque'?1:0.8);});
+  s+=Math.min(1,(d.quran||0)/20);
+  if(d.helped===true)s+=1;
+  return Math.round((s/7)*100);
+}
 
 // ═══════════════════════════════════════════════
 // TEACHER DASHBOARD
 // ═══════════════════════════════════════════════
 function exitTeacher(){document.getElementById('teacherDashboard').classList.remove('active');location.reload();}
-
 function switchTab(tab){
   teacherTab=tab;
-  document.getElementById('tabOverview').classList.toggle('active',tab==='overview');
-  document.getElementById('tabCompetition').classList.toggle('active',tab==='competition');
+  ['tabOverview','tabReport','tabCards','tabCompetition'].forEach(id=>{
+    const t=document.getElementById(id);
+    t.classList.toggle('active',id==='tab'+tab.charAt(0).toUpperCase()+tab.slice(1));
+  });
   renderTeacherContent();
 }
-
-function loadAllStudents(){
-  db.ref('ramadan').on('value',snap=>{allStudentsCache=snap.val()||{};renderTeacherContent();});
-}
-
+function loadAllStudents(){db.ref('ramadan').on('value',snap=>{allStudentsCache=snap.val()||{};renderTeacherContent();});}
 function renderTeacherContent(){
   if(teacherTab==='overview')renderOverview();
+  else if(teacherTab==='report')renderReport();
+  else if(teacherTab==='cards')renderCardsTab();
   else renderCompetition();
 }
 
@@ -1160,109 +609,120 @@ function renderTeacherContent(){
 function renderOverview(){
   const ct=document.getElementById('teacherContent');
   const students=Object.entries(allStudentsCache).filter(([k,v])=>v.name);
-
-  if(!students.length){ct.innerHTML='<div class="no-data-msg">No students registered yet. / لا يوجد طلاب مسجلين بعد</div>';return;}
-
-  // Stats
-  let totalStudents=students.length;
-  let totalDays=0, totalPages=0;
-  students.forEach(([k,v])=>{
-    if(v.data)for(let i=1;i<=30;i++){const d=v.data['day'+i];if(d&&hasDayData(d))totalDays++;if(d)totalPages+=(d.quran||0);}
-  });
-
-  let html=`<div class="teacher-stats">
-    <div class="stat-box"><div class="stat-num">${totalStudents}</div><div class="stat-label">Students / طلاب</div></div>
-    <div class="stat-box"><div class="stat-num">${totalDays}</div><div class="stat-label">Days Logged / أيام</div></div>
-    <div class="stat-box"><div class="stat-num">${totalPages}</div><div class="stat-label">Quran Pages / صفحات</div></div>
-  </div>`;
-
-  html+=`<input type="text" class="teacher-search" placeholder="🔍 Search students..." oninput="filterStudents(this.value)">`;
-  html+='<div id="studentsList">';
-
+  if(!students.length){ct.innerHTML='<div class="no-data-msg">No students registered yet.</div>';return;}
+  let totalStudents=students.length,totalDays=0,totalPages=0;
+  students.forEach(([k,v])=>{if(v.data)for(let i=1;i<=30;i++){const d=v.data['day'+i];if(d&&hasDayData(d))totalDays++;if(d)totalPages+=(d.quran||0);}});
+  let html=`<div class="teacher-stats"><div class="stat-box"><div class="stat-num">${totalStudents}</div><div class="stat-label">Students</div></div><div class="stat-box"><div class="stat-num">${totalDays}</div><div class="stat-label">Days Logged</div></div><div class="stat-box"><div class="stat-num">${totalPages}</div><div class="stat-label">Quran Pages</div></div></div>`;
+  html+=`<input type="text" class="teacher-search" placeholder="🔍 Search students..." oninput="filterStudents(this.value)"><div id="studentsList">`;
   students.sort((a,b)=>(a[1].name||'').localeCompare(b[1].name||''));
-  students.forEach(([key,stu])=>{
-    const days=countDays(stu.data);const prayers=countPrayers(stu.data);
-    const quran=countQuran(stu.data);const last=stu.lastUpdated?timeSince(stu.lastUpdated):'—';
+  students.forEach(([key,stu])=>{const st=calcStudentStats(stu.data);const last=stu.lastUpdated?timeSince(stu.lastUpdated):'—';
+    html+=`<div class="student-card" id="card_${key}" data-name="${escapeHtml(stu.name||'')}"><div class="student-card-header" onclick="toggleCard('${key}')"><div><div class="student-card-name">${escapeHtml(stu.name||key)}</div><div class="student-card-meta">${st.days}/30 days · ${st.prayers} prayers · ${st.quran} pages · ${st.overall}% overall · Last: ${last}</div></div><span class="student-card-arrow">▼</span></div><div class="student-card-body"><div class="student-day-grid" id="det_${key}"></div><button class="card-gen-btn" onclick="showStudentCard('${key}')">🎴 Progress Card</button></div></div>`;});
+  html+='</div>';ct.innerHTML=html;
+}
+function toggleCard(key){const card=document.getElementById('card_'+key);const was=card.classList.contains('expanded');card.classList.toggle('expanded');if(!was){const stu=allStudentsCache[key];const det=document.getElementById('det_'+key);if(!stu.data){det.innerHTML='<div style="color:var(--text-light);font-size:0.82rem;padding:8px;">No data yet.</div>';return;}let h='';for(let i=1;i<=30;i++){const d=stu.data['day'+i];if(!d||!hasDayData(d))continue;const pr=d.prayers||{};const icons=PRAYERS.map(p=>(!pr[p]||pr[p]==='none')?'⬜':(pr[p]==='mosque'?'🕌':'🏠')).join('');h+=`<div class="mini-day has-data"><div class="mini-day-title">Day ${i}</div><div class="mini-day-row">${icons}</div><div class="mini-day-row">📖 ${d.quran||0} pg</div><div class="mini-day-row">${d.helped===true?'🤲 <span class="done">Yes ✓</span>':'🤲 —'}</div></div>`;}det.innerHTML=h||'<div style="color:var(--text-light);font-size:0.82rem;padding:8px;">No data yet.</div>';}}
+function filterStudents(q){q=q.toLowerCase();document.querySelectorAll('.student-card').forEach(c=>{c.style.display=c.getAttribute('data-name').toLowerCase().includes(q)?'':'none';});}
 
-    html+=`<div class="student-card" id="card_${key}" data-name="${escapeHtml(stu.name||'')}">
-      <div class="student-card-header" onclick="toggleCard('${key}')">
-        <div><div class="student-card-name">${escapeHtml(stu.name||key)}</div>
-        <div class="student-card-meta">${days}/30 days · ${prayers} prayers · ${quran} pages · Last: ${last}</div></div>
-        <span class="student-card-arrow">▼</span>
-      </div>
-      <div class="student-card-body"><div class="student-day-grid" id="det_${key}"></div></div>
-    </div>`;
+// ── REPORT TAB ──
+function renderReport(){
+  const ct=document.getElementById('teacherContent');
+  const students=Object.entries(allStudentsCache).filter(([k,v])=>v.name);
+  if(!students.length){ct.innerHTML='<div class="no-data-msg">No students registered yet.</div>';return;}
+  students.sort((a,b)=>{const sa=calcStudentStats(a[1].data),sb=calcStudentStats(b[1].data);return sb.overall-sa.overall;});
+
+  let html=`<div style="overflow-x:auto;margin-bottom:1rem;"><table class="report-table"><thead><tr><th>#</th><th>Student</th><th>Days</th><th>🕌 Prayers</th><th>🕌 Mosque</th><th>📖 Quran</th><th>🤲 Helped</th><th>Overall</th></tr></thead><tbody>`;
+  students.forEach(([key,stu],idx)=>{
+    const s=calcStudentStats(stu.data);
+    const barW=Math.min(40,s.overall*0.4);
+    html+=`<tr><td>${idx+1}</td><td class="name-cell">${escapeHtml(stu.name||key)}</td><td>${s.days}/30</td><td>${s.prayers}/150</td><td>${s.mosquePrayers}</td><td>${s.quran} pg</td><td>${s.helped}/30</td><td>${s.overall}% <span class="pct-bar" style="width:${barW}px;"></span></td></tr>`;
   });
-  html+='</div>';
+  html+=`</tbody></table></div>`;
+
+  // Summary stats
+  const totals=students.reduce((acc,[k,v])=>{const s=calcStudentStats(v.data);acc.prayers+=s.prayers;acc.quran+=s.quran;acc.helped+=s.helped;acc.overall+=s.overall;return acc;},{prayers:0,quran:0,helped:0,overall:0});
+  const avg=Math.round(totals.overall/students.length);
+  html+=`<div class="teacher-stats"><div class="stat-box"><div class="stat-num">${avg}%</div><div class="stat-label">Avg Overall</div></div><div class="stat-box"><div class="stat-num">${totals.prayers}</div><div class="stat-label">Total Prayers</div></div><div class="stat-box"><div class="stat-num">${totals.quran}</div><div class="stat-label">Total Quran Pages</div></div></div>`;
   ct.innerHTML=html;
 }
 
-function toggleCard(key){
-  const card=document.getElementById('card_'+key);
-  const was=card.classList.contains('expanded');
-  card.classList.toggle('expanded');
-  if(!was){
-    const stu=allStudentsCache[key];
-    const det=document.getElementById('det_'+key);
-    if(!stu.data){det.innerHTML='<div style="color:var(--text-light);font-size:0.82rem;padding:8px;">No data yet.</div>';return;}
-    let h='';
-    for(let i=1;i<=30;i++){
-      const d=stu.data['day'+i];if(!d||!hasDayData(d))continue;
-      const pr=d.prayers||{};
-      const icons=PRAYERS.map(p=>(!pr[p]||pr[p]==='none')?'⬜':(pr[p]==='mosque'?'🕌':'🏠')).join('');
-      h+=`<div class="mini-day has-data">
-        <div class="mini-day-title">Day ${i}</div>
-        <div class="mini-day-row">${icons}</div>
-        <div class="mini-day-row">📖 ${d.quran||0} pg</div>
-        <div class="mini-day-row">${d.helped===true?'🤲 <span class="done">Yes ✓</span>':'🤲 —'}</div>
-      </div>`;
-    }
-    det.innerHTML=h||'<div style="color:var(--text-light);font-size:0.82rem;padding:8px;">No data yet.</div>';
+// ── CARDS TAB ──
+function renderCardsTab(){
+  const ct=document.getElementById('teacherContent');
+  const students=Object.entries(allStudentsCache).filter(([k,v])=>v.name);
+  if(!students.length){ct.innerHTML='<div class="no-data-msg">No students registered yet.</div>';return;}
+
+  let html=`<div style="text-align:center;margin-bottom:1.2rem;"><button class="splash-btn" style="max-width:320px;margin:0 auto;font-size:0.9rem;" onclick="showAllParticipantsCard()">🏆 All Participants Card</button><p style="font-size:0.72rem;color:var(--text-light);margin-top:6px;">Screenshot-ready leaderboard for sharing</p></div>`;
+  html+=`<div class="day-selector-label" style="margin-bottom:0.6rem;">Individual Student Cards</div>`;
+  html+=`<input type="text" class="teacher-search" placeholder="🔍 Search..." oninput="filterCardBtns(this.value)">`;
+  html+=`<div id="cardBtnsList" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;">`;
+  students.sort((a,b)=>(a[1].name||'').localeCompare(b[1].name||''));
+  students.forEach(([key,stu])=>{
+    const s=calcStudentStats(stu.data);
+    html+=`<button class="card-gen-btn" data-name="${escapeHtml(stu.name||'')}" style="width:100%;justify-content:center;padding:12px;" onclick="showStudentCard('${key}')"><span>🎴</span> ${escapeHtml(stu.name||key)} <span style="color:var(--gold);font-weight:600;margin-left:4px;">${s.overall}%</span></button>`;
+  });
+  html+=`</div>`;
+  ct.innerHTML=html;
+}
+function filterCardBtns(q){q=q.toLowerCase();document.querySelectorAll('#cardBtnsList .card-gen-btn').forEach(b=>{b.style.display=b.getAttribute('data-name').toLowerCase().includes(q)?'':'none';});}
+
+// ═══════ CARD OVERLAY ═══════
+function closeCardOverlay(){document.getElementById('cardOverlay').classList.remove('active');}
+
+const MOON_SVG=`<svg viewBox="0 0 100 100" width="100%"><defs><linearGradient id="mg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#f0d48a"/><stop offset="100%" style="stop-color:#d4a843"/></linearGradient></defs><path d="M50 5 C28 5 10 23 10 50 C10 77 28 95 50 95 C38 85 32 68 32 50 C32 32 38 15 50 5Z" fill="url(#mg2)"/><circle cx="68" cy="22" r="2" fill="#f0d48a" opacity="0.7"/><circle cx="78" cy="35" r="1.5" fill="#f0d48a" opacity="0.5"/></svg>`;
+
+function showStudentCard(key){
+  const stu=allStudentsCache[key];if(!stu)return;
+  const s=calcStudentStats(stu.data);
+  let gridHTML='';
+  for(let i=1;i<=30;i++){
+    const score=getDayScore(stu.data,i);
+    let lvl='';
+    if(score>0&&score<=25)lvl='level-1';
+    else if(score>25&&score<=50)lvl='level-2';
+    else if(score>50&&score<=80)lvl='level-3';
+    else if(score>80)lvl='level-4';
+    gridHTML+=`<div class="pc-day-cell ${lvl}">${i}</div>`;
   }
+  const html=`<div class="progress-card">
+    <div class="pc-header"><div class="pc-moon">${MOON_SVG}</div><div class="pc-brand">Mr. Riyadh's Ramadan Tracker · Al-Marwa School</div><div class="pc-name">${escapeHtml(stu.name||key)}</div></div>
+    <div class="pc-divider"></div>
+    <div class="pc-stats"><div class="pc-stat"><div class="pc-stat-num">${s.days}</div><div class="pc-stat-label">Days</div></div><div class="pc-stat"><div class="pc-stat-num">${s.quran}</div><div class="pc-stat-label">Quran Pages</div></div><div class="pc-stat"><div class="pc-stat-num">${s.overall}%</div><div class="pc-stat-label">Overall</div></div></div>
+    <div class="pc-divider"></div>
+    <div class="pc-grid-section"><div class="pc-grid-label">30-Day Progress</div><div class="pc-day-grid">${gridHTML}</div></div>
+    <div class="pc-divider"></div>
+    <div class="pc-cats">
+      <div class="pc-cat-row"><span class="pc-cat-icon">🕌</span><span class="pc-cat-name">Prayers</span><div class="pc-cat-bar-bg"><div class="pc-cat-bar-fill prayer-fill" style="width:${s.prayerPct}%"></div></div><span class="pc-cat-pct">${s.prayerPct}%</span></div>
+      <div class="pc-cat-row"><span class="pc-cat-icon">📖</span><span class="pc-cat-name">Quran</span><div class="pc-cat-bar-bg"><div class="pc-cat-bar-fill quran-fill" style="width:${s.quranPct}%"></div></div><span class="pc-cat-pct">${s.quranPct}%</span></div>
+      <div class="pc-cat-row"><span class="pc-cat-icon">🤲</span><span class="pc-cat-name">Helping</span><div class="pc-cat-bar-bg"><div class="pc-cat-bar-fill help-fill" style="width:${s.helpPct}%"></div></div><span class="pc-cat-pct">${s.helpPct}%</span></div>
+    </div>
+    <div class="pc-footer"><div class="pc-footer-text">مفكرة رمضان مع الأستاذ رياض · Ramadan ${new Date().getFullYear()}</div></div>
+  </div>`;
+  document.getElementById('cardOverlayContent').innerHTML=html;
+  document.getElementById('cardOverlay').classList.add('active');
 }
 
-function filterStudents(q){
-  q=q.toLowerCase();
-  document.querySelectorAll('.student-card').forEach(c=>{
-    c.style.display=c.getAttribute('data-name').toLowerCase().includes(q)?'':'none';
+function showAllParticipantsCard(){
+  const students=Object.entries(allStudentsCache).filter(([k,v])=>v.name);
+  students.sort((a,b)=>calcStudentStats(b[1].data).overall-calcStudentStats(a[1].data).overall);
+  let rowsHTML='';
+  students.forEach(([key,stu],idx)=>{
+    const s=calcStudentStats(stu.data);
+    rowsHTML+=`<div class="all-card-row"><div class="all-card-rank">${idx+1}</div><div class="all-card-name">${escapeHtml(stu.name||key)}</div><div class="all-card-bar-bg"><div class="all-card-bar-fill" style="width:${s.overall}%"></div></div><div class="all-card-pct">${s.overall}%</div></div>`;
   });
+  const html=`<div class="all-card">
+    <div class="pc-header"><div class="pc-moon">${MOON_SVG}</div><div class="pc-brand">Al-Marwa School · Mr. Riyadh</div><div class="pc-name" style="font-size:1.3rem;">🏆 Ramadan Leaderboard</div><div style="color:rgba(240,212,138,0.4);font-size:0.72rem;margin-top:4px;">${students.length} Participants</div></div>
+    <div class="pc-divider"></div>
+    <div class="all-card-list">${rowsHTML}</div>
+    <div class="pc-footer"><div class="pc-footer-text">مفكرة رمضان مع الأستاذ رياض · Ramadan ${new Date().getFullYear()}</div></div>
+  </div>`;
+  document.getElementById('cardOverlayContent').innerHTML=html;
+  document.getElementById('cardOverlay').classList.add('active');
 }
 
 // ── COMPETITION ──
-function renderCompetition(){
-  const ct=document.getElementById('teacherContent');
-  db.ref('ramadan_competition').once('value',snap=>{
-    const comp=snap.val()||{};
-    const students=Object.entries(allStudentsCache).filter(([k,v])=>v.name);
-    students.sort((a,b)=>((comp[b[0]]||{}).points||0)-((comp[a[0]]||{}).points||0));
-
-    if(!students.length){ct.innerHTML='<div class="no-data-msg">No students registered yet.</div>';return;}
-
-    let html='';
-    students.forEach(([key,stu],idx)=>{
-      const pts=(comp[key]||{}).points||0;
-      let rc='rn';if(idx===0&&pts>0)rc='';else if(idx===1&&pts>0)rc='r2';else if(idx===2&&pts>0)rc='r3';
-      html+=`<div class="comp-student-row">
-        <div class="comp-rank ${rc}">${idx+1}</div>
-        <div class="comp-student-name">${escapeHtml(stu.name||key)}</div>
-        <div class="comp-student-pts">${pts}</div>
-        <button class="comp-btn" onclick="compAdj('${key}',1)">+</button>
-        <button class="comp-btn minus" onclick="compAdj('${key}',-1)">−</button>
-      </div>`;
-    });
-    ct.innerHTML=html;
-  });
-}
-
-function compAdj(key,delta){
-  db.ref('ramadan_competition/'+key+'/points').transaction(c=>Math.max(0,(c||0)+delta),()=>renderCompetition());
-  db.ref('ramadan_competition/'+key+'/name').set(allStudentsCache[key]?.name||key);
-}
+function renderCompetition(){const ct=document.getElementById('teacherContent');db.ref('ramadan_competition').once('value',snap=>{const comp=snap.val()||{};const students=Object.entries(allStudentsCache).filter(([k,v])=>v.name);students.sort((a,b)=>((comp[b[0]]||{}).points||0)-((comp[a[0]]||{}).points||0));if(!students.length){ct.innerHTML='<div class="no-data-msg">No students registered yet.</div>';return;}let html='';students.forEach(([key,stu],idx)=>{const pts=(comp[key]||{}).points||0;let rc='rn';if(idx===0&&pts>0)rc='';else if(idx===1&&pts>0)rc='r2';else if(idx===2&&pts>0)rc='r3';html+=`<div class="comp-student-row"><div class="comp-rank ${rc}">${idx+1}</div><div class="comp-student-name">${escapeHtml(stu.name||key)}</div><div class="comp-student-pts">${pts}</div><button class="comp-btn" onclick="compAdj('${key}',1)">+</button><button class="comp-btn minus" onclick="compAdj('${key}',-1)">−</button></div>`;});ct.innerHTML=html;});}
+function compAdj(key,delta){db.ref('ramadan_competition/'+key+'/points').transaction(c=>Math.max(0,(c||0)+delta),()=>renderCompetition());db.ref('ramadan_competition/'+key+'/name').set(allStudentsCache[key]?.name||key);}
 
 // ── HELPERS ──
-function countDays(data){if(!data)return 0;let c=0;for(let i=1;i<=30;i++)if(data['day'+i]&&hasDayData(data['day'+i]))c++;return c;}
-function countPrayers(data){if(!data)return 0;let c=0;for(let i=1;i<=30;i++){const d=data['day'+i];if(d&&d.prayers)PRAYERS.forEach(p=>{if(d.prayers[p]&&d.prayers[p]!=='none')c++;});}return c;}
-function countQuran(data){if(!data)return 0;let t=0;for(let i=1;i<=30;i++){const d=data['day'+i];if(d)t+=(d.quran||0);}return t;}
 function timeSince(ts){const s=Math.floor((Date.now()-ts)/1000);if(s<60)return 'now';if(s<3600)return Math.floor(s/60)+'m';if(s<86400)return Math.floor(s/3600)+'h';return Math.floor(s/86400)+'d';}
 </script>
 </body>
