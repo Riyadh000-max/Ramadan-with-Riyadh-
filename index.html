@@ -735,7 +735,7 @@ async function hashPin(pin) {
 // Teacher PIN hash computed at startup from char codes — never appears as readable text
 let TEACHER_HASH = null;
 (async () => {
-  const cc = [35,49,57,56,52,35]; // char codes assembled at runtime
+  const cc = [49,57,56,52]; // char codes assembled at runtime
   TEACHER_HASH = await hashPin(cc.map(c => String.fromCharCode(c)).join(''));
 })();
 
